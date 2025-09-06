@@ -20,6 +20,17 @@
 #define Game        4
 #define Gameplus    5
 
+#define MEH(key) LS(LC(LA(key)))
+
+#define SQT GRAVE
+#define DQT LS(GRAVE)
+#define GRV RA(GRAVE)
+#define PIP LS(BSLH)
+#define BSL RA(BSLH)
+#define NBSP RA(SPACE)
+#define NSPC LC(LG(RIGHT))
+#define PSPC LC(LG(LEFT))
+
 #define PARAM_1 0
 #define PARAM_2 0
 
