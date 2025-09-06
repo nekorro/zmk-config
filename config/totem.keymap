@@ -20,6 +20,9 @@
 #define Game        4
 #define Gameplus    5
 
+#define PARAM_1 0
+#define PARAM_2 0
+
 #define MACRO(NAME, COMPATIBLE, BINDING_CELLS, BINDINGS) \
     NAME: NAME { \
         compatible = COMPATIBLE; \
