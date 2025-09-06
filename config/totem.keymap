@@ -208,7 +208,7 @@
             display-name = "Sym";
             bindings = <
               &kp N1         &kp N2     &kp N3         &kp N4      &kp N5             &kp N6            &kp RA(COMMA)  &kp LS(RBKT)  &kp LS(LBKT)  &kp SEMI
-              &kp N7         &trans    &kp RA(DOT)    &kp N9      &kp RA(LS(DOT))    &kp LS(RA(FSLH))  &kp N0         &kp RA(FSLH)  &trans       &kp RBKT
+              &kp N7         &kp SQT    &kp RA(DOT)    &kp N9      &kp RA(LS(DOT))    &kp LS(RA(FSLH))  &kp N0         &kp RA(FSLH)  &kp DQT       &kp RBKT
     &kp PIPE  &kp BACKSLASH  &kp GRAVE  &kp UNDER      &kp EQUAL   &kp RA(O)          &kp RA(P)         &kp PLUS       &kp MINUS     &kp N8        &kp RA(BSLH)  &kp LBKT
                                         &kp BACKSPACE  &kp DELETE  &kp ENTER          &trans            &trans         &trans
             >;
