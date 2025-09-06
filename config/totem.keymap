@@ -88,28 +88,28 @@
             cm_gui,
             &sticky_forever LGUI,
             &m_release_key_twice LGUI,
-            MOD_LGUI,
+ #           MOD_LGUI,
             MOD_LGUI
         )
         MODMORPH(
             cm_alt,
             &sticky_forever LALT,
             &m_release_key_twice LALT,
-            MOD_LALT,
+ #           MOD_LALT,
             MOD_LALT
         )
         MODMORPH(
             cm_ctrl,
             &sticky_forever LCTRL,
             &m_release_key_twice LCTRL,
-            MOD_LCTL,
+ #           MOD_LCTL,
             MOD_LCTL
         )
         MODMORPH(
             cm_sft,
             &sticky_forever LSHIFT,
             &m_release_key_twice LSHIFT,
-            MOD_LSFT,
+ #           MOD_LSFT,
             MOD_LSFT
         )
 
