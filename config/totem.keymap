@@ -16,9 +16,7 @@
 #define Base        0
 #define Num         1
 #define Sym         2
-#define Fun         3
-#define Game        4
-#define Gameplus    5
+#define Nav         3
 
 #define MEH(key) LS(LC(LA(key)))
 
@@ -66,32 +64,8 @@
         keep-mods = <(KEEP_MODS)>; \
     };
 
-&mt {
-    quick-tap-ms = <100>;
-    global-quick-tap;
-    flavor = "tap-preferred";
-    tapping-term-ms = <170>;
-};
-
-&lt {
-    tapping-term-ms = <240>;
-    flavor = "balanced";
-    quick-tap-ms = <150>;
-};
-
 / {
     behaviors {
-        hm: homerow_mods {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HOMEROW_MODS";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <200>;
-            quick-tap-ms = <125>;
-            global-quick-tap;
-            bindings = <&kp>, <&kp>;
-        };
-
         MACRO_ONE_PARAM(
             m_release_key_twice,
             &macro_release
@@ -137,6 +111,38 @@
             &m_release_key_twice LSHIFT,
             MOD_LSFT,
             MOD_LSFT
+        )
+
+        MACRO_TWO_PARAM(
+            m_hold_mod_press_key,
+            &macro_press
+                &macro_param_1to1 &kp PARAM_1
+            &macro_tap
+                &macro_param_2to1 &kp PARAM_2
+        )
+
+        MODMORPH(
+            tabber,
+            &m_hold_mod_press_key LCTRL TAB,
+            &kp TAB,
+            MOD_LCTL,
+            MOD_LCTL
+        )
+
+        MODMORPH(
+            swapper_win,
+            &m_hold_mod_press_key LALT TAB,
+            &kp TAB,
+            MOD_LALT,
+            MOD_LALT
+        )
+
+        MODMORPH(
+            swapper_mac,
+            &m_hold_mod_press_key LGUI TAB,
+            &kp TAB,
+            MOD_LGUI,
+            MOD_LGUI
         )
 
         MACRO_ONE_PARAM(
@@ -225,24 +231,15 @@
             >;
         };
 
-        Gaming {
-            display-name = "Game";
+        Nav {
+            display-name = "Nav";
             bindings = <
-            &kp Z           &kp X  &kp C      &kp V         &sl 5     &trans  &trans  &trans  &trans  &trans
-            &kp TAB         &kp Q  &kp W      &kp E         &kp R     &trans  &trans  &trans  &trans  &trans
-&kp ESCAPE  &kp LEFT_SHIFT  &kp A  &kp S      &kp D         &kp F     &trans  &trans  &trans  &trans  &trans  &trans
-                                   &kp LCTRL  &kp LEFT_ALT  &trans    &trans  &trans  &trans
+              &tabber           &swapper_win       &swapper_mac   &kp PSCRN  &kp ESC    &trans          &trans          &trans        &kp BSPC         &kp DELETE
+              &cm_gui           &cm_alt            &cm_sft        &cm_ctrl   &kp RET    &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &trans
+      &trans  &kp LC(LG(LEFT))  &kp LG(LC(RIGHT))  &kp BACKSPACE  &kp DEL    &trans     &kp HOME        &kp PG_DN       &kp PG_UP     &kp END          &trans      &kp KP_NUM
+                                                   &trans         &trans     &trans     &trans          &trans          &trans
             >;
         };
 
-        Gaming+ {
-            display-name = "Game+";
-            bindings = <
-        &kp F10  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp T     &kp RA(RC(Y))  &kp RA(RC(U))  &trans  &trans  &kp LC(RA(DEL))
-        &kp L    &kp O         &kp Y         &kp K         &kp G     &kp F5         &kp F7         &trans  &trans  &kp F12
-&trans  &to 0    &trans        &trans        &trans        &trans    &trans         &trans         &trans  &trans  &kp F22          &kp LA(F4)
-                               &kp J         &kp I         &kp M     &trans         &trans         &trans
-            >;
-        };
     };
 };
