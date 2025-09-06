@@ -14,7 +14,7 @@
 #include <dt-bindings/zmk/keys.h>
 
 #define Base        0
-#define Nav         1
+#define Num         1
 #define Sym         2
 #define Fun         3
 #define Game        4
@@ -33,6 +33,15 @@
             <BINDINGS>; \
     };
 #define MACRO_ONE_PARAM(NAME, BINDINGS) MACRO(NAME, "zmk,behavior-macro-one-param", 1, BINDINGS)
+
+#define STICKY_FOREVER(NAME, BIND) \
+    NAME: NAME { \
+        compatible = "zmk,behavior-sticky-key"; \
+        #binding-cells = <1>; \
+        bindings = <BIND>; \
+        release-after-ms = 3000000; \
+        ignore-modifiers; \
+    };
 
 &mt {
     quick-tap-ms = <100>;
@@ -59,6 +68,53 @@
             global-quick-tap;
             bindings = <&kp>, <&kp>;
         };
+
+        MACRO_ONE_PARAM(
+            m_press_key_twice,
+            &macro_press
+                &macro_param_1to1 &kp PARAM_1
+                &macro_param_1to1 &kp PARAM_1
+            &macro_pause_for_release
+            &macro_tap
+                &m_release_key_twice PARAM_1
+        )
+        MACRO_ONE_PARAM(
+            m_release_key_twice,
+            &macro_release
+                &macro_param_1to1 &kp PARAM_1
+                &macro_param_1to1 &kp PARAM_1
+        )
+
+        STICKY_FOREVER(sticky_forever, &m_press_key_twice)
+
+        MODMORPH(
+            cm_gui,
+            &sticky_forever LGUI,
+            &m_release_key_twice LGUI,
+            MOD_LGUI,
+            MOD_LGUI
+        )
+        MODMORPH(
+            cm_alt,
+            &sticky_forever LALT,
+            &m_release_key_twice LALT,
+            MOD_LALT,
+            MOD_LALT
+        )
+        MODMORPH(
+            cm_ctrl,
+            &sticky_forever LCTRL,
+            &m_release_key_twice LCTRL,
+            MOD_LCTL,
+            MOD_LCTL
+        )
+        MODMORPH(
+            cm_sft,
+            &sticky_forever LSHIFT,
+            &m_release_key_twice LSHIFT,
+            MOD_LSFT,
+            MOD_LSFT
+        )
 
         MACRO_ONE_PARAM(
             la,
@@ -126,13 +182,13 @@
             >;
         };
 
-        Nav {
-            display-name = "Nav";
+        Num {
+            display-name = "Num";
             bindings = <
-              &kp TILDE       &trans     &kp UP_ARROW  &trans     &kp LBRC    &kp RBRC  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0
-              &kp LEFT_SHIFT  &kp LEFT   &kp DOWN      &kp RIGHT  &kp LBKT    &kp RBKT  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp MINUS
-&kp LEFT_ALT  &kp LEFT_WIN    &kp MINUS  &trans        &kp PLUS   &kp LPAR    &kp RPAR  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp KP_MULTIPLY  &kp PLUS
-                                         &trans        &trans     &trans      &trans    &trans        &kp DOT
+              &kp KP_N1  &kp KP_N2       &kp KP_N3      &kp KP_N4       &kp KP_N5          &kp KP_N6  &kp KP_N7  &kp KP_N8  &kp KP_N9  &kp KP_N0
+              &kp F11    &kp LEFT_ARROW  &kp UP_ARROW   &kp DOWN_ARROW  &kp RIGHT_ARROW    &kp F12    &cm_ctrl   &cm_sft    &cm_alt    &cm_gui
+   &kp MINUS  &kp F1     &kp F2          &kp F3         &kp F4          &kp F5             &kp F6     &kp F7     &kp F8     &kp F9     &kp F10    &UBER_DOT
+                                         &kp BACKSPACE   &kp DELETE     &kp ENTER          &trans     &trans     &trans
             >;
         };
 
