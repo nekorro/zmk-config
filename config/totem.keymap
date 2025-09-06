@@ -61,7 +61,7 @@
         #binding-cells = <0>; \
         bindings = <NORMAL>, <MORPHED>; \
         mods = <(MODS)>; \
-        keep-mods = <(KEEP_MODS)>; \
+#        keep-mods = <(KEEP_MODS)>; \
     };
 
 / {
