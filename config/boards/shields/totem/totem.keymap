@@ -76,7 +76,7 @@
 
         UBER_DOT: UBER_DOT {
             compatible = "zmk,behavior-mod-morph";
-            label = "UBER_DOT";
+            label = "UBERDOT";
             bindings = <&KP_DOT_SHIFT_COMMA>, <&KP_COLON_SHIFT_SEMICOLON>;
 
             #binding-cells = <0>;
