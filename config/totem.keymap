@@ -120,7 +120,6 @@
             tabber,
             &m_hold_mod_press_key LCTRL TAB,
             &kp TAB,
-            MOD_LCTL,
             MOD_LCTL
         )
 
@@ -128,7 +127,6 @@
             swapper_win,
             &m_hold_mod_press_key LALT TAB,
             &kp TAB,
-            MOD_LALT,
             MOD_LALT
         )
 
@@ -136,7 +134,6 @@
             swapper_mac,
             &m_hold_mod_press_key LGUI TAB,
             &kp TAB,
-            MOD_LGUI,
             MOD_LGUI
         )
 
