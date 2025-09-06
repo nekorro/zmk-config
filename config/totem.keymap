@@ -42,6 +42,14 @@
         release-after-ms = <3000000>; \
         ignore-modifiers; \
     };
+#define MODMORPH(NAME, NORMAL, MORPHED, MODS, KEEP_MODS) \
+    NAME: NAME { \
+        compatible = "zmk,behavior-mod-morph"; \
+        #binding-cells = <0>; \
+        bindings = <NORMAL>, <MORPHED>; \
+        mods = <(MODS)>; \
+        keep-mods = <(KEEP_MODS)>; \
+    };
 
 &mt {
     quick-tap-ms = <100>;
