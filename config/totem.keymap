@@ -32,14 +32,18 @@
         bindings = \
             <BINDINGS>; \
     };
+#define MACRO_NO_PARAM(NAME, BINDINGS)  MACRO(NAME, "zmk,behavior-macro"          , 0, BINDINGS)
 #define MACRO_ONE_PARAM(NAME, BINDINGS) MACRO(NAME, "zmk,behavior-macro-one-param", 1, BINDINGS)
+#define MACRO_TWO_PARAM(NAME, BINDINGS) MACRO(NAME, "zmk,behavior-macro-two-param", 2, BINDINGS)
+
+#define MAX_TIMER __UINT32_MAX__ // around 50 days
 
 #define STICKY_FOREVER(NAME, BIND) \
     NAME: NAME { \
         compatible = "zmk,behavior-sticky-key"; \
         #binding-cells = <1>; \
         bindings = <BIND>; \
-        release-after-ms = <3000000>; \
+        release-after-ms = <MAX_TIMER>; \
         ignore-modifiers; \
     };
 #define MODMORPH(NAME, NORMAL, MORPHED, MODS, KEEP_MODS) \
@@ -78,6 +82,12 @@
         };
 
         MACRO_ONE_PARAM(
+            m_release_key_twice,
+            &macro_release
+                &macro_param_1to1 &kp PARAM_1
+                &macro_param_1to1 &kp PARAM_1
+        )
+        MACRO_ONE_PARAM(
             m_press_key_twice,
             &macro_press
                 &macro_param_1to1 &kp PARAM_1
@@ -85,12 +95,6 @@
             &macro_pause_for_release
             &macro_tap
                 &m_release_key_twice PARAM_1
-        )
-        MACRO_ONE_PARAM(
-            m_release_key_twice,
-            &macro_release
-                &macro_param_1to1 &kp PARAM_1
-                &macro_param_1to1 &kp PARAM_1
         )
 
         STICKY_FOREVER(sticky_forever, &m_press_key_twice)
@@ -203,20 +207,10 @@
         Sym {
             display-name = "Sym";
             bindings = <
-                &kp EXCL  &kp AT  &kp HASH  &kp DOLLAR  &kp PERCENT    &kp CARET  &kp AMPERSAND  &kp KP_ASTERISK  &kp SQT  &kp DQT
-                &trans    &trans  &trans    &trans      &trans         &trans     &trans         &trans           &trans   &trans
-&studio_unlock  &trans    &trans  &trans    &trans      &trans         &kp UNDER  &kp EQUAL      &trans           &trans   &kp SLASH  &kp HOME
-                                  &trans    &trans      &trans         &trans     &trans         &trans
-            >;
-        };
-
-        Fun {
-            display-name = "Fun";
-            bindings = <
-        &bootloader  &trans  &trans  &trans  &to 4     &trans  &trans  &trans  &kp END  &kp F1
-        &trans       &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans   &kp F10
-&trans  &trans       &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans   &kp F20  &kp F7
-                             &trans  &trans  &trans    &trans  &trans  &trans
+              &kp N1         &kp N2     &kp N3         &kp N4      &kp N5             &kp N6            &kp RA(COMMA)  &kp LS(RBKT)  &kp LS(LBKT)  &kp SEMI
+              &kp N7         &kp trans    &kp RA(DOT)    &kp N9      &kp RA(LS(DOT))    &kp LS(RA(FSLH))  &kp N0         &kp RA(FSLH)  &kp trans       &kp RBKT
+    &kp PIPE  &kp BACKSLASH  &kp GRAVE  &kp UNDER      &kp EQUAL   &kp RA(O)          &kp RA(P)         &kp PLUS       &kp MINUS     &kp N8        &kp RA(BSLH)  &kp LBKT
+                                        &kp BACKSPACE  &kp DELETE  &kp ENTER          &trans            &trans         &trans
             >;
         };
 
