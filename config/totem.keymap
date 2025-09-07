@@ -11,7 +11,6 @@
 // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
 
 #include <behaviors.dtsi>
-#include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 
 #define Base        0
@@ -206,132 +205,17 @@
         };
     };
 
-    combos {
-        compatible = "zmk,combos";
-
-        extra-nav-left {
-            bindings = <&mo 4>;
-            key-positions = <33 34>;
-        };
-
-        enter-left {
-            bindings = <&kp ENTER>;
-            key-positions = <25 24>;
-        };
-
-        enter-right {
-            bindings = <&kp ENTER>;
-            key-positions = <27 26>;
-        };
-
-        delete-left {
-            bindings = <&kp DEL>;
-            key-positions = <3 4>;
-        };
-
-        delete-right {
-            bindings = <&kp DEL>;
-            key-positions = <5 6>;
-        };
-
-        extra-nav-right {
-            bindings = <&mo 4>;
-            key-positions = <35 36>;
-        };
-
-        esc_left {
-            bindings = <&kp ESCAPE>;
-            key-positions = <4 14>;
-        };
-
-        esc_right {
-            bindings = <&kp ESCAPE>;
-            key-positions = <5 15>;
-        };
-
-        LANG {
-            bindings = <&kp CAPS>;
-            key-positions = <32 37>;
-        };
-
-        l5 {
-            bindings = <&mo 5>;
-            key-positions = <33 36>;
-        };
-    };
+    combos { compatible = "zmk,combos"; };
 
     keymap {
         compatible = "zmk,keymap";
 
         Base {
             bindings = <
-         &kp Q  &kp W  &kp E             &kp R  &kp T        &kp Y  &kp U  &kp I      &kp O    &kp P
-         &kp A  &kp S  &kp D             &kp F  &kp G        &kp H  &kp J  &kp K      &kp L    &kp SEMI
-&kp TAB  &kp Z  &kp X  &kp C             &kp V  &kp B        &kp N  &kp M  &kp COMMA  &kp DOT  &kp FSLH  &UBER_DOT
-                       &caps_word_shift  &la 3  &kp SPACE    &mo 2  &la 1  &kp RALT
-            >;
-        };
-
-        Num {
-            bindings = <
-           &kp KP_N1  &kp KP_N2       &kp KP_N3      &kp KP_N4       &kp KP_N5          &kp KP_N6  &kp KP_N7  &kp KP_N8  &kp KP_N9  &kp KP_N0
-           &kp F11    &kp LEFT_ARROW  &kp UP_ARROW   &kp DOWN_ARROW  &kp RIGHT_ARROW    &kp F12    &cm_ctrl   &cm_sft    &cm_alt    &cm_gui
-&kp MINUS  &kp F1     &kp F2          &kp F3         &kp F4          &kp F5             &kp F6     &kp F7     &kp F8     &kp F9     &kp F10    &UBER_DOT
-                                      &kp BACKSPACE  &kp DELETE      &kp ENTER          &trans     &trans     &trans
-            >;
-        };
-
-        Sym {
-            bindings = <
-          &kp N1         &kp N2     &kp N3         &kp N4      &kp N5             &kp N6            &kp RA(COMMA)  &kp LS(RBKT)  &kp LS(LBKT)  &kp SEMI
-          &kp N7         &kp SQT    &kp RA(DOT)    &kp N9      &kp RA(LS(DOT))    &kp LS(RA(FSLH))  &kp N0         &kp RA(FSLH)  &kp DQT       &kp RBKT
-&kp PIPE  &kp BACKSLASH  &kp GRAVE  &kp UNDER      &kp EQUAL   &kp RA(O)          &kp RA(P)         &kp PLUS       &kp MINUS     &kp N8        &kp RA(BSLH)  &kp LBKT
-                                    &kp BACKSPACE  &kp DELETE  &kp ENTER          &trans            &trans         &trans
-            >;
-        };
-
-        Nav {
-            bindings = <
-        &tabber           &swapper_win       &swapper_mac   &kp PSCRN  &kp ESC    &trans          &trans          &trans        &kp BSPC         &kp DELETE
-        &cm_gui           &cm_alt            &cm_sft        &cm_ctrl   &kp RET    &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &trans
-&trans  &kp LC(LG(LEFT))  &kp LG(LC(RIGHT))  &kp BACKSPACE  &kp DEL    &trans     &kp HOME        &kp PG_DN       &kp PG_UP     &kp END          &trans      &kp KP_NUM
-                                             &trans         &trans     &trans     &trans          &trans          &trans
-            >;
-        };
-
-        ExtraNav {
-            bindings = <
-        &trans  &trans          &trans        &trans          &trans             &trans          &trans          &trans        &trans           &trans
-        &trans  &kp LEFT_ARROW  &kp UP_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW    &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &trans
-&trans  &trans  &trans          &trans        &trans          &trans             &trans          &trans          &trans        &trans           &trans  &trans
-                                &trans        &trans          &trans             &trans          &trans          &trans
-            >;
-        };
-
-        Button {
-            bindings = <
-        &kp KP_NUMLOCK  &trans  &trans  &trans  &trans            &kp C_VOL_UP  &kp C_BRI_UP  &kp C_AC_DESKTOP_SHOW_ALL_WINDOWS  &trans  &bt BT_SEL 0
-        &trans          &trans  &trans  &trans  &trans            &kp C_VOL_DN  &kp C_BRI_DN  &trans                             &trans  &bt BT_SEL 1
-&tog 6  &trans          &trans  &trans  &trans  &studio_unlock    &kp C_MUTE    &trans        &trans                             &trans  &bt BT_SEL 2  &bt BT_CLR_ALL
-                                &trans  &trans  &trans            &trans        &trans        &trans
-            >;
-        };
-
-        Gaming {
-            bindings = <
-         &kp ESCAPE        &kp Q  &kp X         &kp E  &kp R        &trans  &trans          &trans          &trans           &trans
-         &kp LEFT_SHIFT    &kp A  &kp W         &kp D  &kp F        &trans  &kp LEFT_ARROW  &kp UP_ARROW    &kp RIGHT_ARROW  &trans
-&kp TAB  &kp LEFT_CONTROL  &kp Z  &kp S         &kp C  &kp V        &trans  &trans          &kp DOWN_ARROW  &trans           &trans  &to 0
-                                  &kp LEFT_ALT  &mo 7  &kp SPACE    &trans  &trans          &trans
-            >;
-        };
-
-        Gaming+ {
-            bindings = <
-         &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5    &trans  &trans  &trans  &trans  &kp LC(RA(DEL))
-         &kp NUMBER_6  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0    &kp F5  &trans  &trans  &trans  &trans
-&kp TAB  &kp Y         &kp U         &kp I         &kp O         &kp P           &trans  &trans  &trans  &trans  &trans           &kp LA(F4)
-                                     &trans        &trans        &trans          &trans  &trans  &trans
+         &kp Q  &kp W  &kp E             &kp R   &kp T        &kp Y   &kp U   &kp I      &kp O    &kp P
+         &kp A  &kp S  &kp D             &kp F   &kp G        &kp H   &kp J   &kp K      &kp L    &kp SEMI
+&kp TAB  &kp Z  &kp X  &kp C             &kp V   &kp B        &kp N   &kp M   &kp COMMA  &kp DOT  &kp FSLH  &UBER_DOT
+                       &caps_word_shift  &trans  &kp SPACE    &trans  &trans  &kp RALT
             >;
         };
     };
