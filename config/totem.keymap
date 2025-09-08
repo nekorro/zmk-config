@@ -63,7 +63,7 @@
         sm_ctrl: sm_ctrl {
             compatible = "zmk,behavior-mod-morph";
             label = "SM_CTRL";
-            bindings = <&sticky_forever LCTRL>, <&release LCTRL>;
+            bindings = <&new_macro LCTRL>, <&release LCTRL>;
 
             #binding-cells = <0>;
             mods = <(MOD_LCTL)>;
@@ -99,6 +99,13 @@
             mods = <(MOD_LGUI)>;
             keep-mods = <(MOD_LGUI)>;
         };
+
+        new_behavior: new_behavior {
+            compatible = "zmk,behavior-tap-dance";
+            label = "NEW_BEHAVIOR";
+            #binding-cells = <0>;
+            bindings = <&sticky_forever LCTRL>, <&none>;
+        };
     };
 
     combos { compatible = "zmk,combos"; };
@@ -118,9 +125,7 @@
         releasemods: releasemods {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings =
-                <&macro_tap>,
-                <&kp 0>;
+            bindings = <&macro_tap>, <&kp 0>;
 
             label = "RELEASEMODS";
         };
@@ -137,6 +142,16 @@
                 <&macro_param_1to1 &mo MACRO_PLACEHOLDER>;
 
             label = "LA";
+        };
+
+        new_macro: new_macro {
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
+            bindings =
+                <&macro_press>,
+                <&macro_param_1to1 &kp MACRO_PLACEHOLDER>;
+
+            label = "NEW_MACRO";
         };
     };
 
