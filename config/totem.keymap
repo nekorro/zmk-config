@@ -119,8 +119,8 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_release>,
-                <&kp LCTRL &kp LSHFT &kp LEFT_ALT &kp LEFT_GUI>;
+                <&macro_tap>,
+                <&kp 0>;
 
             label = "RELEASEMODS";
         };
