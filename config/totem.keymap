@@ -63,7 +63,7 @@
         sm_ctrl: sm_ctrl {
             compatible = "zmk,behavior-mod-morph";
             label = "SM_CTRL";
-            bindings = <&new_macro LCTRL>, <&release LCTRL>;
+            bindings = <&td_sticky_ctrl>, <&release LCTRL>;
 
             #binding-cells = <0>;
             mods = <(MOD_LCTL)>;
@@ -73,7 +73,7 @@
         sm_shift: sm_shift {
             compatible = "zmk,behavior-mod-morph";
             label = "SM_SHIFT";
-            bindings = <&sticky_forever LEFT_SHIFT>, <&release LEFT_SHIFT>;
+            bindings = <&td_sticky_shift>, <&release LEFT_SHIFT>;
 
             #binding-cells = <0>;
             mods = <(MOD_LSFT)>;
@@ -83,7 +83,7 @@
         sm_alt: sm_alt {
             compatible = "zmk,behavior-mod-morph";
             label = "SM_ALT";
-            bindings = <&sticky_forever LEFT_ALT>, <&release LEFT_ALT>;
+            bindings = <&td_sticky_alt>, <&release LEFT_ALT>;
 
             #binding-cells = <0>;
             mods = <(MOD_LALT)>;
@@ -93,18 +93,39 @@
         sm_gui: sm_gui {
             compatible = "zmk,behavior-mod-morph";
             label = "SM_GUI";
-            bindings = <&sticky_forever LEFT_GUI>, <&release LEFT_GUI>;
+            bindings = <&td_sticky_gui>, <&release LEFT_GUI>;
 
             #binding-cells = <0>;
             mods = <(MOD_LGUI)>;
             keep-mods = <(MOD_LGUI)>;
         };
 
-        new_behavior: new_behavior {
+        td_sticky_ctrl: td_sticky_ctrl {
             compatible = "zmk,behavior-tap-dance";
-            label = "NEW_BEHAVIOR";
+            label = "TD_STICKY_CTRL";
             #binding-cells = <0>;
-            bindings = <&sticky_forever LCTRL>, <&none>;
+            bindings = <&sticky_forever LCTRL>, <&hold_forever LCTRL>;
+        };
+
+        td_sticky_shift: td_sticky_shift {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_STICKY_SHIFT";
+            #binding-cells = <0>;
+            bindings = <&sticky_forever LEFT_SHIFT>, <&hold_forever LEFT_SHIFT>;
+        };
+
+        td_sticky_alt: td_sticky_alt {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_STICKY_ALT";
+            #binding-cells = <0>;
+            bindings = <&sticky_forever LEFT_ALT>, <&hold_forever LEFT_ALT>;
+        };
+
+        td_sticky_gui: td_sticky_gui {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_STICKY_GUI";
+            #binding-cells = <0>;
+            bindings = <&sticky_forever LEFT_GUI>, <&hold_forever LEFT_GUI>;
         };
     };
 
@@ -122,19 +143,19 @@
             label = "RELEASE_CTRL";
         };
 
-        releasemods: releasemods {
+        release_sticky: release_sticky {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&macro_tap>, <&kp 0>;
 
-            label = "RELEASEMODS";
+            label = "RELEASE_STICKY";
         };
 
         la: la {
             compatible = "zmk,behavior-macro-one-param";
             #binding-cells = <1>;
             bindings =
-                <&releasemods>,
+                <&release_sticky>,
                 <&macro_press>,
                 <&macro_param_1to1 &mo MACRO_PLACEHOLDER>,
                 <&macro_pause_for_release>,
@@ -144,14 +165,14 @@
             label = "LA";
         };
 
-        new_macro: new_macro {
+        hold_forever: hold_forever {
             compatible = "zmk,behavior-macro-one-param";
             #binding-cells = <1>;
             bindings =
                 <&macro_press>,
                 <&macro_param_1to1 &kp MACRO_PLACEHOLDER>;
 
-            label = "NEW_MACRO";
+            label = "HOLD_FOREVER";
         };
     };
 
