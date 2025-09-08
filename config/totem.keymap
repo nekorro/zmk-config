@@ -260,10 +260,10 @@
 
         ExtNav {
             bindings = <
-        &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-        &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-                        &trans  &trans  &trans    &trans  &trans  &trans
+        &trans  &trans          &trans        &trans          &trans             &trans          &trans          &trans        &trans           &trans
+        &trans  &kp LEFT_ARROW  &kp UP_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW    &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &trans
+&trans  &trans  &trans          &trans        &trans          &trans             &trans          &trans          &trans        &trans           &trans  &trans
+                                &trans        &trans          &trans             &trans          &trans          &trans
             >;
 
             label = "ExtNav";
@@ -271,10 +271,10 @@
 
         Button {
             bindings = <
-        &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-        &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-                        &trans  &trans  &trans    &trans  &trans  &trans
+        &kp KP_NUMLOCK  &trans  &trans  &trans  &trans            &kp C_VOL_UP  &kp C_BRI_UP  &kp C_AC_DESKTOP_SHOW_ALL_WINDOWS  &trans  &bt BT_SEL 0
+        &trans          &trans  &trans  &trans  &trans            &kp C_VOL_DN  &kp C_BRI_DN  &trans                             &trans  &bt BT_SEL 1
+&tog 6  &trans          &trans  &trans  &trans  &trans            &kp C_MUTE    &trans        &trans                             &trans  &bt BT_SEL 2  &bt BT_CLR_ALL
+                                &trans  &trans  &trans            &trans        &trans        &trans
             >;
 
             label = "Button";
@@ -282,10 +282,10 @@
 
         Game {
             bindings = <
-        &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-        &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-                        &trans  &trans  &trans    &trans  &trans  &trans
+         &kp ESCAPE        &kp Q  &kp X         &kp E  &kp R        &trans  &trans          &trans          &trans           &trans
+         &kp LEFT_SHIFT    &kp A  &kp W         &kp D  &kp F        &trans  &kp LEFT_ARROW  &kp UP_ARROW    &kp RIGHT_ARROW  &trans
+&kp TAB  &kp LEFT_CONTROL  &kp Z  &kp S         &kp C  &kp V        &trans  &trans          &kp DOWN_ARROW  &trans           &trans  &to 0
+                                  &kp LEFT_ALT  &mo 7  &kp SPACE    &trans  &trans          &trans
             >;
 
             label = "Game";
@@ -293,10 +293,10 @@
 
         Game+ {
             bindings = <
-        &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-        &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-                        &trans  &trans  &trans    &trans  &trans  &trans
+         &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5    &trans  &trans  &trans  &trans  &kp LC(RA(DEL))
+         &kp NUMBER_6  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0    &kp F5  &trans  &trans  &trans  &trans
+&kp TAB  &kp Y         &kp U         &kp I         &kp O         &kp P           &trans  &trans  &trans  &trans  &trans           &kp LA(F4)
+                                     &trans        &trans        &trans          &trans  &trans  &trans
             >;
 
             label = "Game+";
