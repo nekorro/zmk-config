@@ -11,6 +11,7 @@
 // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
 
 #include <behaviors.dtsi>
+#include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 
 #define Base        0
@@ -130,7 +131,29 @@
         };
     };
 
-    combos { compatible = "zmk,combos"; };
+    combos {
+        compatible = "zmk,combos";
+
+        extra-nav-left {
+            bindings = <&mo 4>;
+            key-positions = <34 33>;
+        };
+
+        extra-nav-right {
+            bindings = <&mo 4>;
+            key-positions = <36 35>;
+        };
+
+        LANG {
+            bindings = <&kp CAPS>;
+            key-positions = <32 37>;
+        };
+
+        Btn {
+            bindings = <&mo 5>;
+            key-positions = <33 36>;
+        };
+    };
 
     macros {
         release: release {
@@ -216,10 +239,10 @@
 
         Base {
             bindings = <
-         &kp Q  &kp W  &kp E             &kp R  &kp T        &kp Y   &kp U   &kp I      &kp O    &kp P
-         &kp A  &kp S  &kp D             &kp F  &kp G        &kp H   &kp J   &kp K      &kp L    &kp SEMI
-&kp TAB  &kp Z  &kp X  &kp C             &kp V  &kp B        &kp N   &kp M   &kp COMMA  &kp DOT  &kp FSLH  &UBER_DOT
-                       &caps_word_shift  &la 3  &kp SPACE    &trans  &trans  &kp RALT
+         &kp Q  &kp W  &kp E             &kp R  &kp T        &kp Y  &kp U  &kp I      &kp O    &kp P
+         &kp A  &kp S  &kp D             &kp F  &kp G        &kp H  &kp J  &kp K      &kp L    &kp SEMI
+&kp TAB  &kp Z  &kp X  &kp C             &kp V  &kp B        &kp N  &kp M  &kp COMMA  &kp DOT  &kp FSLH  &UBER_DOT
+                       &caps_word_shift  &la 3  &kp SPACE    &mo 2  &la 1  &kp RALT
             >;
 
             label = "Base";
@@ -262,7 +285,7 @@
             bindings = <
         &trans  &trans          &trans        &trans          &trans             &trans          &trans          &trans        &trans           &trans
         &trans  &kp LEFT_ARROW  &kp UP_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW    &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &trans
-&trans  &trans  &trans          &trans        &trans          &trans             &trans          &trans          &trans        &trans           &trans  &trans
+&trans  &trans  &kp HOME        &kp PAGE_UP   &kp PAGE_DOWN   &kp END            &kp HOME        &kp PAGE_DOWN   &kp PAGE_UP   &kp END          &trans  &trans
                                 &trans        &trans          &trans             &trans          &trans          &trans
             >;
 
@@ -271,10 +294,10 @@
 
         Button {
             bindings = <
-        &kp KP_NUMLOCK  &trans  &trans  &trans  &trans            &kp C_VOL_UP  &kp C_BRI_UP  &kp C_AC_DESKTOP_SHOW_ALL_WINDOWS  &trans  &bt BT_SEL 0
-        &trans          &trans  &trans  &trans  &trans            &kp C_VOL_DN  &kp C_BRI_DN  &trans                             &trans  &bt BT_SEL 1
-&tog 6  &trans          &trans  &trans  &trans  &trans            &kp C_MUTE    &trans        &trans                             &trans  &bt BT_SEL 2  &bt BT_CLR_ALL
-                                &trans  &trans  &trans            &trans        &trans        &trans
+        &kp KP_NUMLOCK  &trans  &trans  &trans  &trans    &kp C_VOL_UP  &kp C_BRI_UP  &kp C_AC_DESKTOP_SHOW_ALL_WINDOWS  &trans  &bt BT_SEL 0
+        &trans          &trans  &trans  &trans  &trans    &kp C_VOL_DN  &kp C_BRI_DN  &trans                             &trans  &bt BT_SEL 1
+&tog 6  &trans          &trans  &trans  &trans  &trans    &kp C_MUTE    &trans        &trans                             &trans  &bt BT_SEL 2  &bt BT_CLR_ALL
+                                &trans  &trans  &trans    &trans        &trans        &trans
             >;
 
             label = "Button";
