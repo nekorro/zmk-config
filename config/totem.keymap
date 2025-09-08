@@ -131,7 +131,7 @@
         tabber: tabber {
             compatible = "zmk,behavior-mod-morph";
             label = "TABBER";
-            bindings = <&hold_mod_press_key LCTRL TAB>, <&kp TAB>;
+            bindings = <&hold_mod_tap_key LCTRL TAB>, <&kp TAB>;
 
             #binding-cells = <0>;
             mods = <(MOD_LCTL)>;
@@ -177,7 +177,7 @@
             label = "HOLD_FOREVER";
         };
 
-        hold_mod_press_key: hold_mod_press_key {
+        hold_mod_tap_key: hold_mod_tap_key {
             compatible = "zmk,behavior-macro-two-param";
             #binding-cells = <2>;
             bindings =
@@ -186,17 +186,7 @@
                 <&macro_tap>,
                 <&kp MACRO_PLACEHOLDER>;
 
-            label = "HOLD_MOD_PRESS_KEY";
-        };
-
-        releasemods: releasemods {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_release>,
-                <&kp LCTRL &kp LEFT_ALT &kp LEFT_GUI &kp LEFT_SHIFT>;
-
-            label = "RELEASEMODS";
+            label = "HOLD_MOD_TAP_KEY";
         };
 
         press_twice: press_twice {
@@ -204,7 +194,7 @@
             #binding-cells = <1>;
             bindings =
                 <&macro_press>,
-                <&macro_param_1to1 &sticky_forever MACRO_PLACEHOLDER &macro_param_1to1 &kp MACRO_PLACEHOLDER>;
+                <&macro_param_1to1 &kp MACRO_PLACEHOLDER &macro_param_1to1 &sticky_forever MACRO_PLACEHOLDER>;
 
             label = "PRESS_TWICE";
         };
