@@ -228,7 +228,7 @@
         Num {
             bindings = <
            &kp KP_N1  &kp KP_N2       &kp KP_N3      &kp KP_N4       &kp KP_N5          &kp KP_N6  &kp KP_N7  &kp KP_N8  &kp KP_N9  &kp KP_N0
-           &kp F11    &kp LEFT_ARROW  &kp UP_ARROW   &kp DOWN_ARROW  &kp RIGHT_ARROW    &kp F12    &cm_ctrl   &cm_sft    &cm_alt    &cm_gui
+           &kp F11    &kp LEFT_ARROW  &kp UP_ARROW   &kp DOWN_ARROW  &kp RIGHT_ARROW    &kp F12    &sm_ctrl   &sm_shift  &sm_alt    &sm_gui
 &kp MINUS  &kp F1     &kp F2          &kp F3         &kp F4          &kp F5             &kp F6     &kp F7     &kp F8     &kp F9     &kp F10    &UBER_DOT
                                       &kp BACKSPACE  &kp DELETE      &kp ENTER          &trans     &trans     &trans
             >;
