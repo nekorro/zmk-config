@@ -151,11 +151,6 @@
             bindings = <&mo 5>;
             key-positions = <33 36>;
         };
-
-        sd {
-            bindings = <&kp ESC>;
-            key-positions = <0 10>;
-        };
     };
 
     macros {
