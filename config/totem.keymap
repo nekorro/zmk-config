@@ -58,6 +58,7 @@
             #binding-cells = <1>;
             release-after-ms = <3000000>;
             ignore-modifiers;
+            quick-release;
         };
 
         sm_ctrl: sm_ctrl {
