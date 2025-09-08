@@ -187,6 +187,7 @@
                 <&kp LCTRL>,
                 <&macro_tap>,
                 <&kp TAB>,
+                <&macro_wait_time 1000>,
                 <&macro_release>,
                 <&kp LCTRL>;
 
