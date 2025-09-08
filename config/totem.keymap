@@ -63,7 +63,7 @@
         sm_ctrl: sm_ctrl {
             compatible = "zmk,behavior-mod-morph";
             label = "SM_CTRL";
-            bindings = <&td_sticky_ctrl>, <&release LCTRL>;
+            bindings = <&td_sticky_ctrl>, <&release_twice LCTRL>;
 
             #binding-cells = <0>;
             mods = <(MOD_LCTL)>;
@@ -73,7 +73,7 @@
         sm_shift: sm_shift {
             compatible = "zmk,behavior-mod-morph";
             label = "SM_SHIFT";
-            bindings = <&td_sticky_shift>, <&release LEFT_SHIFT>;
+            bindings = <&td_sticky_shift>, <&release_twice LEFT_SHIFT>;
 
             #binding-cells = <0>;
             mods = <(MOD_LSFT)>;
@@ -83,7 +83,7 @@
         sm_alt: sm_alt {
             compatible = "zmk,behavior-mod-morph";
             label = "SM_ALT";
-            bindings = <&td_sticky_alt>, <&release LEFT_ALT>;
+            bindings = <&td_sticky_alt>, <&release_twice LEFT_ALT>;
 
             #binding-cells = <0>;
             mods = <(MOD_LALT)>;
@@ -93,7 +93,7 @@
         sm_gui: sm_gui {
             compatible = "zmk,behavior-mod-morph";
             label = "SM_GUI";
-            bindings = <&td_sticky_gui>, <&release LEFT_GUI>;
+            bindings = <&td_sticky_gui>, <&release_twice LEFT_GUI>;
 
             #binding-cells = <0>;
             mods = <(MOD_LGUI)>;
@@ -104,28 +104,28 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TD_STICKY_CTRL";
             #binding-cells = <0>;
-            bindings = <&sticky_forever LCTRL>, <&hold_forever LCTRL>;
+            bindings = <&press_twice LCTRL>, <&hold_forever LCTRL>;
         };
 
         td_sticky_shift: td_sticky_shift {
             compatible = "zmk,behavior-tap-dance";
             label = "TD_STICKY_SHIFT";
             #binding-cells = <0>;
-            bindings = <&sticky_forever LEFT_SHIFT>, <&hold_forever LEFT_SHIFT>;
+            bindings = <&press_twice LEFT_SHIFT>, <&hold_forever LEFT_SHIFT>;
         };
 
         td_sticky_alt: td_sticky_alt {
             compatible = "zmk,behavior-tap-dance";
             label = "TD_STICKY_ALT";
             #binding-cells = <0>;
-            bindings = <&sticky_forever LEFT_ALT>, <&hold_forever LEFT_ALT>;
+            bindings = <&press_twice LEFT_ALT>, <&hold_forever LEFT_ALT>;
         };
 
         td_sticky_gui: td_sticky_gui {
             compatible = "zmk,behavior-tap-dance";
             label = "TD_STICKY_GUI";
             #binding-cells = <0>;
-            bindings = <&sticky_forever LEFT_GUI>, <&hold_forever LEFT_GUI>;
+            bindings = <&press_twice LEFT_GUI>, <&hold_forever LEFT_GUI>;
         };
 
         tabber: tabber {
@@ -142,23 +142,14 @@
     combos { compatible = "zmk,combos"; };
 
     macros {
-        release: release_ctrl {
+        release_twice: release_twice {
             compatible = "zmk,behavior-macro-one-param";
             #binding-cells = <1>;
             bindings =
-                <&macro_param_1to1>,
                 <&macro_release>,
-                <&kp MACRO_PLACEHOLDER>;
+                <&macro_param_1to1 &kp MACRO_PLACEHOLDER &macro_param_1to1 &kp MACRO_PLACEHOLDER>;
 
-            label = "RELEASE_CTRL";
-        };
-
-        release_sticky: release_sticky {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap>, <&kp 0>;
-
-            label = "RELEASE_STICKY";
+            label = "RELEASE_TWICE";
         };
 
         la: la {
@@ -206,6 +197,16 @@
                 <&kp LCTRL &kp LEFT_ALT &kp LEFT_GUI &kp LEFT_SHIFT>;
 
             label = "RELEASEMODS";
+        };
+
+        press_twice: press_twice {
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
+            bindings =
+                <&macro_press>,
+                <&macro_param_1to1 &sticky_forever MACRO_PLACEHOLDER &macro_param_1to1 &kp MACRO_PLACEHOLDER>;
+
+            label = "PRESS_TWICE";
         };
     };
 
