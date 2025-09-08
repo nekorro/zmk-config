@@ -182,7 +182,13 @@
         tabb: tabb {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_press>, <&kp LCTRL>, <&macro_tap>, <&kp TAB>;
+            bindings =
+                <&macro_press>,
+                <&kp LCTRL>,
+                <&macro_tap>,
+                <&kp TAB>,
+                <&macro_release>,
+                <&kp LCTRL>;
 
             label = "TABB";
         };
@@ -204,10 +210,10 @@
 
         Nav {
             bindings = <
-        &tabb    &trans   &trans     &trans    &trans    &trans  &trans  &trans  &trans  &trans
-        &sm_gui  &sm_alt  &sm_shift  &sm_ctrl  &trans    &trans  &trans  &trans  &trans  &trans
-&trans  &trans   &trans   &trans     &trans    &trans    &trans  &trans  &trans  &trans  &trans  &trans
-                          &trans     &trans    &trans    &trans  &trans  &trans
+        &tabb    &trans   &trans     &trans    &trans       &trans  &trans  &trans  &trans  &trans
+        &sm_gui  &sm_alt  &sm_shift  &sm_ctrl  &kp ENTER    &trans  &trans  &trans  &trans  &trans
+&trans  &trans   &trans   &trans     &trans    &trans       &trans  &trans  &trans  &trans  &trans  &trans
+                          &trans     &trans    &trans       &trans  &trans  &trans
             >;
 
             label = "Nav";
