@@ -248,7 +248,7 @@
     keymap {
         compatible = "zmk,keymap";
 
-        Base {
+        en {
             bindings = <
          &kp Q  &kp W  &kp E             &kp R  &kp T        &kp Y  &kp U  &kp I      &kp O    &kp P
          &kp A  &kp S  &kp D             &kp F  &kp G        &kp H  &kp J  &kp K      &kp L    &kp SEMI
@@ -256,84 +256,18 @@
                        &caps_word_shift  &la 3  &kp SPACE    &mo 2  &la 1  &kp RALT
             >;
 
-            label = "Base";
+            display-name = "En";
         };
 
-        Num {
+        ru {
             bindings = <
-           &kp KP_N1  &kp KP_N2       &kp KP_N3      &kp KP_N4       &kp KP_N5          &kp KP_N6  &kp KP_N7  &kp KP_N8  &kp KP_N9  &kp KP_N0
-           &kp F11    &kp LEFT_ARROW  &kp UP_ARROW   &kp DOWN_ARROW  &kp RIGHT_ARROW    &kp F12    &sm_ctrl   &sm_shift  &sm_alt    &sm_gui
-&kp MINUS  &kp F1     &kp F2          &kp F3         &kp F4          &kp F5             &kp F6     &kp F7     &kp F8     &kp F9     &kp F10    &UBER_DOT
-                                      &kp BACKSPACE  &kp DELETE      &kp ENTER          &trans     &trans     &trans
+         &kp RU_CYRILLIC_SHORT_I  &kp RU_CYRILLIC_TSE   &kp RU_CYRILLIC_U   &kp RU_CYRILLIC_KA  &kp RU_CYRILLIC_IE        &kp RU_CYRILLIC_EN  &kp RU_CYRILLIC_GHE        &kp RU_CYRILLIC_SHA  &kp RU_CYRILLIC_SHCHA  &kp RU_CYRILLIC_ZE
+         &kp RU_CYRILLIC_EF       &kp RU_CYRILLIC_YERU  &kp RU_CYRILLIC_VE  &kp RU_CYRILLIC_A   &kp RU_CYRILLIC_PE        &kp RU_CYRILLIC_ER  &kp RU_CYRILLIC_O          &kp RU_CYRILLIC_EL   &kp RU_CYRILLIC_DE     &kp RU_CYRILLIC_ZHE
+&kp TAB  &kp RU_CYRILLIC_YA       &kp RU_CYRILLIC_CHE   &kp RU_CYRILLIC_ES  &kp RU_CYRILLIC_EM  &kp RU_CYRILLIC_I        &kp RU_CYRILLIC_TE  &kp RU_CYRILLIC_SOFT_SIGN  &kp RU_CYRILLIC_BE   &kp RU_CYRILLIC_YU     &kp RU_CYRILLIC_E  &UBER_DOT
+                       &caps_word_shift  &la 3  &kp SPACE    &mo 2  &la 1  &kp RALT
             >;
 
-            label = "Num";
-        };
-
-        Sym {
-            bindings = <
-          &kp N1             &kp N2         &kp N3         &kp N4      &kp N5             &kp N6            &kp RA(COMMA)  &kp LS(RBKT)  &kp LS(LBKT)   &kp N7
-          &kp SEMI           &kp GRAVE      &kp RA(DOT)    &kp N9      &kp RA(LS(DOT))    &kp LS(RA(FSLH))  &kp N0         &kp RA(FSLH)  &kp LS(GRAVE)  &kp RBKT
-&kp PIPE  &kp RA(BACKSLASH)  &kp RA(GRAVE)  &kp UNDER      &kp EQUAL   &kp RA(O)          &kp RA(P)         &kp PLUS       &kp MINUS     &kp N8         &kp BSLH  &kp LBKT
-                                            &kp BACKSPACE  &kp DELETE  &kp ENTER          &trans            &trans         &trans
-            >;
-
-            label = "Sym";
-        };
-
-        Nav {
-            bindings = <
-        &wintab           &mactab            &trans         &kp PRINTSCREEN  &kp ESC      &trans    &trans         &trans     &trans     &trans
-        &sm_gui           &sm_alt            &sm_shift      &sm_ctrl         &kp ENTER    &kp LEFT  &kp DOWN       &kp UP     &kp RIGHT  &trans
-&trans  &kp LG(LC(LEFT))  &kp LG(LC(RIGHT))  &kp BACKSPACE  &kp DELETE       &trans       &kp HOME  &kp PAGE_DOWN  &kp PG_UP  &kp END    &trans  &kp KP_NUM
-                                             &trans         &trans           &trans       &trans    &trans         &trans
-            >;
-
-            label = "Nav";
-        };
-
-        ExtNav {
-            bindings = <
-        &trans  &trans          &trans        &trans          &trans             &trans          &trans          &trans        &trans           &trans
-        &trans  &kp LEFT_ARROW  &kp UP_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW    &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &trans
-&trans  &trans  &kp HOME        &kp PAGE_UP   &kp PAGE_DOWN   &kp END            &kp HOME        &kp PAGE_DOWN   &kp PAGE_UP   &kp END          &trans  &trans
-                                &trans        &trans          &trans             &trans          &trans          &trans
-            >;
-
-            label = "ExtNav";
-        };
-
-        Button {
-            bindings = <
-        &kp KP_NUMLOCK  &trans  &trans  &trans  &trans    &kp C_VOL_UP  &kp C_BRI_UP  &kp C_AC_DESKTOP_SHOW_ALL_WINDOWS  &trans  &bt BT_SEL 0
-        &trans          &trans  &trans  &trans  &trans    &kp C_VOL_DN  &kp C_BRI_DN  &trans                             &trans  &bt BT_SEL 1
-&tog 6  &trans          &trans  &trans  &trans  &trans    &kp C_MUTE    &trans        &trans                             &trans  &bt BT_SEL 2  &bt BT_CLR_ALL
-                                &trans  &trans  &trans    &trans        &trans        &trans
-            >;
-
-            label = "Button";
-        };
-
-        Game {
-            bindings = <
-         &kp ESCAPE        &kp Q  &kp X         &kp E  &kp R        &trans  &trans          &trans          &trans           &trans
-         &kp LEFT_SHIFT    &kp A  &kp W         &kp D  &kp F        &trans  &kp LEFT_ARROW  &kp UP_ARROW    &kp RIGHT_ARROW  &trans
-&kp TAB  &kp LEFT_CONTROL  &kp Z  &kp S         &kp C  &kp V        &trans  &trans          &kp DOWN_ARROW  &trans           &trans  &to 0
-                                  &kp LEFT_ALT  &mo 7  &kp SPACE    &trans  &trans          &trans
-            >;
-
-            label = "Game";
-        };
-
-        Game+ {
-            bindings = <
-         &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5    &trans  &trans  &trans  &trans  &kp LC(RA(DEL))
-         &kp NUMBER_6  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0    &kp F5  &trans  &trans  &trans  &trans
-&kp TAB  &kp Y         &kp U         &kp I         &kp O         &kp P           &trans  &trans  &trans  &trans  &trans           &kp LA(F4)
-                                     &trans        &trans        &trans          &trans  &trans  &trans
-            >;
-
-            label = "Game+";
+            display-name = "Ru";
         };
     };
 
