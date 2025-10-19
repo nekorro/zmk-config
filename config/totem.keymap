@@ -139,23 +139,13 @@
         compatible = "zmk,combos";
 
         extra-nav-left {
-            bindings = <&mo 0>;
+            bindings = <&mo 5>;
             key-positions = <34 33>;
         };
 
         extra-nav-right {
-            bindings = <&mo 0>;
+            bindings = <&mo 5>;
             key-positions = <36 35>;
-        };
-
-        LANG {
-            bindings = <&kp CAPS>;
-            key-positions = <32 37>;
-        };
-
-        Btn {
-            bindings = <&mo 0>;
-            key-positions = <33 36>;
         };
 
         cmbru {
@@ -295,6 +285,17 @@
             >;
 
             label = "Nav";
+        };
+
+        enav {
+            bindings = <
+        &trans  &trans    &trans    &trans     &trans    &trans  &trans    &trans    &trans     &trans
+        &trans  &kp LEFT  &kp UP    &kp RIGHT  &trans    &trans  &kp LEFT  &kp UP    &kp RIGHT  &trans
+&trans  &trans  &trans    &kp DOWN  &trans     &trans    &trans  &trans    &kp DOWN  &trans     &trans  &trans
+                          &trans    &trans     &trans    &trans  &trans    &trans
+            >;
+
+            label = "Enav";
         };
     };
 
