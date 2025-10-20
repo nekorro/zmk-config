@@ -367,7 +367,7 @@
                 &kp RU_CYRILLIC_SHORT_I  &kp RU_CYRILLIC_TSE   &kp RU_CYRILLIC_U   &kp RU_CYRILLIC_KA  &RU_IE_IO             &kp RU_CYRILLIC_EN  &kp RU_CYRILLIC_GHE  &RU_SHCHA_SHCHA     &kp RU_CYRILLIC_ZE  &kp RU_CYRILLIC_HA
                 &kp RU_CYRILLIC_EF       &kp RU_CYRILLIC_YERU  &kp RU_CYRILLIC_VE  &kp RU_CYRILLIC_A   &kp RU_CYRILLIC_PE    &kp RU_CYRILLIC_ER  &kp RU_CYRILLIC_O    &kp RU_CYRILLIC_EL  &kp RU_CYRILLIC_DE  &kp RU_CYRILLIC_ZHE
 &mt LSHIFT TAB  &kp RU_CYRILLIC_YA       &kp RU_CYRILLIC_CHE   &kp RU_CYRILLIC_ES  &kp RU_CYRILLIC_EM  &kp RU_CYRILLIC_I     &kp RU_CYRILLIC_TE  &RU_SOFT_HARD_SIGN   &kp RU_CYRILLIC_BE  &kp RU_CYRILLIC_YU  &kp RU_CYRILLIC_E    &mt LGUI RU_PERIOD
-                                                               &kp LCTRL           &mo 5               &kp SPACE             &kp RET             &mo 2                &kp LALT
+                                                               &kp LCTRL           &mo 5               &kp SPACE             &kp RET             &mo 3                &kp LALT
             >;
 
             display-name = "Ru";
