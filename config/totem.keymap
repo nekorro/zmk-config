@@ -290,6 +290,21 @@
 
             label = "MACTAB";
         };
+
+        lala: lala {
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
+            bindings =
+                <&macro_release>,
+                <&kp LEFT_GUI &kp LEFT_ALT &kp LEFT_SHIFT &kp LEFT_CONTROL>,
+                <&macro_press>,
+                <&macro_param_1to1 &mo MACRO_PLACEHOLDER>,
+                <&macro_pause_for_release>,
+                <&macro_release>,
+                <&macro_param_1to1 &mo MACRO_PLACEHOLDER>;
+
+            label = "LALA";
+        };
     };
 
     keymap {
@@ -324,7 +339,7 @@
         &kp EXCL    &kp AT         &kp HASH          &SBR_SHIFT_CLOSE  &kp GRAVE           &kp PLUS   &kp N7  &kp N8  &kp N9  &kp ASTRK
         &kp DOLLAR  &kp PERCENT    &TBR_SHIFT_CLOSE  &BR_SHIFT_CLOSE   &kp SINGLE_QUOTE    &kp MINUS  &kp N4  &kp N5  &kp N6  &kp N0
 &trans  &kp CARET   &kp AMPERSAND  &kp BACKSPACE     &CBR_SHIFT_CLOSE  &kp SEMI            &kp EQUAL  &kp N1  &kp N2  &kp N3  &SL_PIPE_BS  &trans
-                                   &trans            &mo 4             &trans              &trans     &trans  &trans
+                                   &trans            &lala 4           &trans              &trans     &trans  &trans
             >;
 
             label = "Sym";
@@ -336,7 +351,7 @@
         &kp EXCL    &en AT         &en HASH             &RU_SBR_SHIFT_CLOSE  &en GRAVE           &kp PLUS   &kp N7  &kp N8  &kp N9  &kp ASTRK
         &en DOLLAR  &kp PERCENT    &RU_TBR_SHIFT_CLOSE  &BR_SHIFT_CLOSE      &en SINGLE_QUOTE    &kp MINUS  &kp N4  &kp N5  &kp N6  &kp N0
 &trans  &en CARET   &en AMPERSAND  &kp BACKSPACE        &RU_CBR_SHIFT_CLOSE  &en SEMI            &kp EQUAL  &kp N1  &kp N2  &kp N3  &SL_PIPE_BS  &trans
-                                   &trans               &mo 4                &trans              &trans     &trans  &trans
+                                   &trans               &lala 4              &trans              &trans     &trans  &trans
             >;
         };
 
@@ -353,10 +368,10 @@
 
         nav {
             bindings = <
-        &mm_wintab                &mm_mactab                &trans                      &trans                        &kp ESC    &kp INSERT      &trans          &trans        &trans           &trans
-        &sticky_forever LEFT_GUI  &sticky_forever LEFT_ALT  &sticky_forever LEFT_SHIFT  &sticky_forever LEFT_CONTROL  &kp RET    &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &trans
-&trans  &trans                    &trans                    &kp BACKSPACE               &kp DELETE                    &trans     &kp HOME        &kp PAGE_DOWN   &kp PAGE_UP   &kp END          &trans  &trans
-                                                            &trans                      &trans                        &trans     &trans          &mo 4           &trans
+        &mm_wintab    &mm_mactab    &trans          &trans            &kp ESC    &kp INSERT      &trans          &trans        &trans           &trans
+        &kp LEFT_GUI  &kp LEFT_ALT  &kp LEFT_SHIFT  &kp LEFT_CONTROL  &kp RET    &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &trans
+&trans  &trans        &trans        &kp BACKSPACE   &kp DELETE        &trans     &kp HOME        &kp PAGE_DOWN   &kp PAGE_UP   &kp END          &trans  &trans
+                                    &trans          &trans            &trans     &trans          &lala 4         &trans
             >;
 
             label = "Nav";
