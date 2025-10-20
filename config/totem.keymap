@@ -105,38 +105,6 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-        TD_BR: TD_BR {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TD_BR";
-            #binding-cells = <0>;
-            bindings =
-                <&BR_SHIFT_CLOSE>,
-                <&auto_br LEFT_PARENTHESIS RIGHT_PARENTHESIS>;
-        };
-
-        TD_CBR: TD_CBR {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TD_CBR";
-            #binding-cells = <0>;
-            bindings = <&CBR_SHIFT_CLOSE>, <&auto_br LEFT_BRACE RIGHT_BRACE>;
-        };
-
-        TD_SBR: TD_SBR {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TD_SBR";
-            #binding-cells = <0>;
-            bindings =
-                <&SBR_SHIFT_CLOSE>,
-                <&auto_br LEFT_BRACKET RIGHT_BRACKET>;
-        };
-
-        TD_TBR: TD_TBR {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TD_TBR";
-            #binding-cells = <0>;
-            bindings = <&TBR_SHIFT_CLOSE>, <&auto_br LESS_THAN GREATER_THAN>;
-        };
-
         RU_CBR_SHIFT_CLOSE: RU_CBR_SHIFT_CLOSE {
             compatible = "zmk,behavior-mod-morph";
             label = "RU_CBR_SHIFT_CLOSE";
@@ -162,33 +130,6 @@
 
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        RU_TD_CBR: RU_TD_CBR {
-            compatible = "zmk,behavior-tap-dance";
-            label = "RU_TD_CBR";
-            #binding-cells = <0>;
-            bindings =
-                <&RU_CBR_SHIFT_CLOSE>,
-                <&ru_auto_br LEFT_BRACE RIGHT_BRACE>;
-        };
-
-        RU_TD_SBR: RU_TD_SBR {
-            compatible = "zmk,behavior-tap-dance";
-            label = "RU_TD_SBR";
-            #binding-cells = <0>;
-            bindings =
-                <&RU_SBR_SHIFT_CLOSE>,
-                <&ru_auto_br LEFT_BRACKET RIGHT_BRACKET>;
-        };
-
-        RU_TD_TBR: RU_TD_TBR {
-            compatible = "zmk,behavior-tap-dance";
-            label = "RU_TD_TBR";
-            #binding-cells = <0>;
-            bindings =
-                <&RU_TBR_SHIFT_CLOSE>,
-                <&ru_auto_br LESS_THAN GREATER_THAN>;
         };
 
         sticky_forever: sticky_forever {
@@ -219,6 +160,24 @@
             #binding-cells = <0>;
             mods = <(MOD_LGUI|MOD_RGUI)>;
             keep-mods = <(MOD_LGUI|MOD_RGUI)>;
+        };
+
+        PIPE_BS: PIPE_BS {
+            compatible = "zmk,behavior-mod-morph";
+            label = "PIPE_BS";
+            bindings = <&kp PIPE>, <&kp BACKSLASH>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LALT|MOD_RALT)>;
+        };
+
+        SL_PIPE_BS: SL_PIPE_BS {
+            compatible = "zmk,behavior-mod-morph";
+            label = "SL_PIPE_BS";
+            bindings = <&kp SLASH>, <&PIPE_BS>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_LALT|MOD_RSFT|MOD_RALT)>;
         };
     };
 
@@ -285,13 +244,6 @@
             tap-ms = <30>;
         };
 
-        auto_br: auto_br {
-            compatible = "zmk,behavior-macro-two-param";
-            #binding-cells = <2>;
-            bindings = <&macro_param_1to1 &kp MACRO_PLACEHOLDER &macro_param_2to1 &kp MACRO_PLACEHOLDER &kp LEFT_ARROW>;
-            label = "AUTO_BR";
-        };
-
         en: en {
             compatible = "zmk,behavior-macro-one-param";
             #binding-cells = <1>;
@@ -308,13 +260,6 @@
             label = "EN";
             wait-ms = <0>;
             tap-ms = <30>;
-        };
-
-        ru_auto_br: ru_auto_br {
-            compatible = "zmk,behavior-macro-two-param";
-            #binding-cells = <2>;
-            bindings = <&to_en &macro_param_1to1 &kp MACRO_PLACEHOLDER &macro_param_2to1 &kp MACRO_PLACEHOLDER &kp LEFT_ARROW &to_ru>;
-            label = "RU_AUTO_BR";
         };
 
         wintab: wintab {
@@ -352,9 +297,9 @@
 
         en {
             bindings = <
-                &kp Q  &kp W  &kp E      &kp R  &kp T        &kp Y    &kp U  &kp I      &kp O    &kp P
-                &kp A  &kp S  &kp D      &kp F  &kp G        &kp H    &kp J  &kp K      &kp L    &kp SEMI
-&mt LSHIFT TAB  &kp Z  &kp X  &kp C      &kp V  &kp B        &kp N    &kp M  &kp COMMA  &kp DOT  &kp FSLH  &en_gui_dot LEFT_GUI 0
+                &kp Q  &kp W  &kp E      &kp R  &kp T        &kp Y    &kp U  &kp I             &kp O              &kp P
+                &kp A  &kp S  &kp D      &kp F  &kp G        &kp H    &kp J  &kp K             &kp L              &kp SEMI
+&mt LSHIFT TAB  &kp Z  &kp X  &kp C      &kp V  &kp B        &kp N    &kp M  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp FSLH  &en_gui_dot LEFT_GUI 0
                               &kp LCTRL  &la 5  &kp SPACE    &kp RET  &mo 2  &kp LALT
             >;
 
@@ -376,10 +321,10 @@
 
         sym {
             bindings = <
-        &kp EXCL    &kp AT         &kp HASH  &TD_SBR  &kp GRAVE            &kp PLUS   &kp N7  &kp N8  &kp N9  &kp ASTRK
-        &kp DOLLAR  &kp PERCENT    &TD_TBR   &TD_BR   &kp DOUBLE_QUOTES    &kp MINUS  &kp N4  &kp N5  &kp N6  &kp N0
-&trans  &kp CARET   &kp AMPERSAND  &kp SEMI  &TD_CBR  &kp SINGLE_QUOTE     &kp EQUAL  &kp N1  &kp N2  &kp N3  &kp SLASH  &trans
-                                   &trans    &mo 4    &trans               &trans     &trans  &trans
+        &kp EXCL    &kp AT         &kp HASH          &SBR_SHIFT_CLOSE  &kp GRAVE           &kp PLUS   &kp N7  &kp N8  &kp N9  &kp ASTRK
+        &kp DOLLAR  &kp PERCENT    &TBR_SHIFT_CLOSE  &BR_SHIFT_CLOSE   &kp SINGLE_QUOTE    &kp MINUS  &kp N4  &kp N5  &kp N6  &kp N0
+&trans  &kp CARET   &kp AMPERSAND  &kp BACKSPACE     &CBR_SHIFT_CLOSE  &kp SEMI            &kp EQUAL  &kp N1  &kp N2  &kp N3  &SL_PIPE_BS  &trans
+                                   &trans            &mo 4             &trans              &trans     &trans  &trans
             >;
 
             label = "Sym";
@@ -388,10 +333,10 @@
         ru_sym {
             label = "RU Sym";
             bindings = <
-        &kp EXCL    &kp AT         &kp HASH    &RU_TD_SBR  &kp GRAVE            &kp PLUS   &kp N7  &kp N8  &kp N9  &kp ASTRK
-        &kp DOLLAR  &kp PERCENT    &RU_TD_TBR  &TD_BR      &en DOUBLE_QUOTES    &kp MINUS  &kp N4  &kp N5  &kp N6  &kp N0
-&trans  &kp CARET   &kp AMPERSAND  &en SEMI    &RU_TD_CBR  &en SINGLE_QUOTE     &kp EQUAL  &kp N1  &kp N2  &kp N3  &kp SLASH  &trans
-                                   &trans      &mo 4       &trans               &trans     &trans  &trans
+        &kp EXCL    &en AT         &en HASH             &RU_SBR_SHIFT_CLOSE  &en GRAVE           &kp PLUS   &kp N7  &kp N8  &kp N9  &kp ASTRK
+        &en DOLLAR  &kp PERCENT    &RU_TBR_SHIFT_CLOSE  &BR_SHIFT_CLOSE      &en SINGLE_QUOTE    &kp MINUS  &kp N4  &kp N5  &kp N6  &kp N0
+&trans  &en CARET   &en AMPERSAND  &kp BACKSPACE        &RU_CBR_SHIFT_CLOSE  &en SEMI            &kp EQUAL  &kp N1  &kp N2  &kp N3  &SL_PIPE_BS  &trans
+                                   &trans               &mo 4                &trans              &trans     &trans  &trans
             >;
         };
 
