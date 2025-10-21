@@ -179,20 +179,28 @@
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_LALT|MOD_RSFT|MOD_RALT)>;
         };
+
+        COLON_SEMI: COLON_SEMI {
+            compatible = "zmk,behavior-mod-morph";
+            label = "COLON_SEMI";
+            bindings = <&kp COLON>, <&kp SEMI>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        RU_COLON_SEMI: RU_COLON_SEMI {
+            compatible = "zmk,behavior-mod-morph";
+            label = "RU_COLON_SEMI";
+            bindings = <&en COLON>, <&en SEMI>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
     };
 
     combos {
         compatible = "zmk,combos";
-
-        extra-nav-left {
-            bindings = <&mo 5>;
-            key-positions = <34 33>;
-        };
-
-        extra-nav-right {
-            bindings = <&mo 5>;
-            key-positions = <36 35>;
-        };
 
         cmbru {
             bindings = <&layer_ru>;
@@ -315,7 +323,7 @@
                 &kp Q  &kp W  &kp E  &kp R  &kp T        &kp Y    &kp U  &kp I             &kp O              &kp P
                 &kp A  &kp S  &kp D  &kp F  &kp G        &kp H    &kp J  &kp K             &kp L              &kp SEMI
 &mt LSHIFT TAB  &kp Z  &kp X  &kp C  &kp V  &kp B        &kp N    &kp M  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp FSLH  &en_gui_dot LEFT_GUI 0
-                              &mo 8  &mo 6  &kp SPACE    &kp RET  &mo 2  &kp LALT
+                              &mo 6  &mo 2  &kp SPACE    &kp RET  &mo 4  &mo 7
             >;
 
             display-name = "En";
@@ -327,65 +335,32 @@
                 &kp RU_CYRILLIC_SHORT_I  &kp RU_CYRILLIC_TSE   &kp RU_CYRILLIC_U   &kp RU_CYRILLIC_KA  &RU_IE_IO             &kp RU_CYRILLIC_EN  &kp RU_CYRILLIC_GHE  &RU_SHCHA_SHCHA     &kp RU_CYRILLIC_ZE  &kp RU_CYRILLIC_HA
                 &kp RU_CYRILLIC_EF       &kp RU_CYRILLIC_YERU  &kp RU_CYRILLIC_VE  &kp RU_CYRILLIC_A   &kp RU_CYRILLIC_PE    &kp RU_CYRILLIC_ER  &kp RU_CYRILLIC_O    &kp RU_CYRILLIC_EL  &kp RU_CYRILLIC_DE  &kp RU_CYRILLIC_ZHE
 &mt LSHIFT TAB  &kp RU_CYRILLIC_YA       &kp RU_CYRILLIC_CHE   &kp RU_CYRILLIC_ES  &kp RU_CYRILLIC_EM  &kp RU_CYRILLIC_I     &kp RU_CYRILLIC_TE  &RU_SOFT_HARD_SIGN   &kp RU_CYRILLIC_BE  &kp RU_CYRILLIC_YU  &kp RU_CYRILLIC_E    &mt LGUI RU_PERIOD
-                                                               &kp LCTRL           &mo 4               &kp SPACE             &kp RET             &mo 3                &kp LALT
+                                                               &mo 6               &mo 3               &kp SPACE             &kp RET             &mo 5                &mo 7
             >;
 
             display-name = "Ru";
             label = "Ru";
         };
 
-        sym {
-            bindings = <
-        &kp EXCL    &kp AT         &kp HASH          &SBR_SHIFT_CLOSE  &kp GRAVE           &kp PLUS   &kp N7  &kp N8  &kp N9  &kp ASTRK
-        &kp DOLLAR  &kp PERCENT    &TBR_SHIFT_CLOSE  &BR_SHIFT_CLOSE   &kp SINGLE_QUOTE    &kp MINUS  &kp N4  &kp N5  &kp N6  &kp N0
-&trans  &kp CARET   &kp AMPERSAND  &kp BACKSPACE     &CBR_SHIFT_CLOSE  &kp SEMI            &kp EQUAL  &kp N1  &kp N2  &kp N3  &SL_PIPE_BS  &trans
-                                   &trans            &lala 0           &trans              &trans     &trans  &trans
-            >;
-
-            label = "Sym";
-        };
-
-        ru_sym {
-            label = "RU Sym";
-            bindings = <
-        &kp EXCL    &en AT         &en HASH             &RU_SBR_SHIFT_CLOSE  &en GRAVE           &kp PLUS   &kp N7  &kp N8  &kp N9  &kp ASTRK
-        &en DOLLAR  &kp PERCENT    &RU_TBR_SHIFT_CLOSE  &BR_SHIFT_CLOSE      &en SINGLE_QUOTE    &kp MINUS  &kp N4  &kp N5  &kp N6  &kp N0
-&trans  &en CARET   &en AMPERSAND  &kp BACKSPACE        &RU_CBR_SHIFT_CLOSE  &en SEMI            &kp EQUAL  &kp N1  &kp N2  &kp N3  &SL_PIPE_BS  &trans
-                                   &trans               &lala 0              &trans              &trans     &trans  &trans
-            >;
-        };
-
-        nav {
-            bindings = <
-        &mm_wintab    &mm_mactab    &trans          &trans            &kp ESC    &kp INSERT      &trans          &trans        &trans           &trans
-        &kp LEFT_GUI  &kp LEFT_ALT  &kp LEFT_SHIFT  &kp LEFT_CONTROL  &kp RET    &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &trans
-&trans  &trans        &trans        &kp BACKSPACE   &kp DELETE        &trans     &kp HOME        &kp PAGE_DOWN   &kp PAGE_UP   &kp END          &trans  &trans
-                                    &trans          &trans            &trans     &trans          &lala 0         &trans
-            >;
-
-            label = "Nav";
-        };
-
-        enav {
-            bindings = <
-        &trans  &trans    &trans    &trans     &trans    &trans  &trans    &trans    &trans     &trans
-        &trans  &kp LEFT  &kp UP    &kp RIGHT  &trans    &trans  &kp LEFT  &kp UP    &kp RIGHT  &trans
-&trans  &trans  &trans    &kp DOWN  &trans     &trans    &trans  &trans    &kp DOWN  &trans     &trans  &trans
-                          &trans    &trans     &trans    &trans  &trans    &trans
-            >;
-
-            label = "Enav";
-        };
-
         lc {
             bindings = <
         &wintab                            &kp EXCLAMATION  &kp EQUAL  &TBR_SHIFT_CLOSE  &kp GRAVE           &trans  &trans  &trans  &trans  &trans
         &kp LGUI                           &kp LALT         &kp LSHFT  &kp LCTRL         &kp SINGLE_QUOTE    &trans  &trans  &trans  &trans  &trans
-&trans  &kp C_AC_DESKTOP_SHOW_ALL_WINDOWS  &kp BSPC         &kp ESC    &kp DELETE        &kp SEMICOLON       &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &kp C_AC_DESKTOP_SHOW_ALL_WINDOWS  &kp BSPC         &kp ESC    &kp DELETE        &COLON_SEMI         &trans  &trans  &trans  &trans  &trans  &trans
                                                             &trans     &trans            &trans              &trans  &trans  &trans
             >;
 
             label = "LC";
+        };
+
+        ru_lc {
+            label = "RU LC";
+            bindings = <
+        &wintab                            &kp EXCLAMATION  &kp EQUAL  &RU_TBR_SHIFT_CLOSE  &en GRAVE           &trans  &trans  &trans  &trans  &trans
+        &kp LGUI                           &kp LALT         &kp LSHFT  &kp LCTRL            &en SINGLE_QUOTE    &trans  &trans  &trans  &trans  &trans
+&trans  &kp C_AC_DESKTOP_SHOW_ALL_WINDOWS  &kp BSPC         &kp ESC    &kp DELETE           &RU_COLON_SEMI      &trans  &trans  &trans  &trans  &trans  &trans
+                                                            &trans     &trans               &trans              &trans  &trans  &trans
+            >;
         };
 
         rc {
@@ -399,6 +374,16 @@
             label = "RC";
         };
 
+        ru_rc {
+            label = "RU RC";
+            bindings = <
+        &trans  &trans  &trans  &trans  &trans    &TBR_SHIFT_CLOSE  &en AMPS     &en AT_SIGN  &en HASH   &en DOLLAR
+        &trans  &trans  &trans  &trans  &trans    &BR_SHIFT_CLOSE   &kp RCTRL    &kp RSHFT    &kp RALT   &kp RGUI
+&trans  &trans  &trans  &trans  &trans  &trans    &CBR_SHIFT_CLOSE  &SL_PIPE_BS  &kp PERCENT  &en CARET  &kp UNDERSCORE  &trans
+                        &trans  &trans  &trans    &trans            &trans       &trans
+            >;
+        };
+
         num {
             bindings = <
         &kp F1    &kp F2    &kp F3     &kp F4     &kp F5     &kp PLUS   &kp N7  &kp N8  &kp N9  &kp ASTRK
@@ -410,13 +395,15 @@
             label = "Num";
         };
 
-        layer_9 {
+        nav {
             bindings = <
         &trans  &trans          &trans          &trans           &trans    &trans  &trans  &trans  &trans  &trans
         &trans  &kp LEFT_ARROW  &kp UP_ARROW    &kp RIGHT_ARROW  &trans    &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans          &kp DOWN_ARROW  &trans           &trans    &trans  &trans  &trans  &trans  &trans  &trans
                                 &trans          &trans           &trans    &trans  &trans  &trans
             >;
+
+            label = "Nav";
         };
     };
 
