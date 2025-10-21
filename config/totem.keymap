@@ -340,10 +340,10 @@
 
         en {
             bindings = <
-                &kp Q  &kp W  &kp E      &kp R  &kp T        &kp Y    &kp U  &kp I             &kp O              &kp P
-                &kp A  &kp S  &kp D      &kp F  &kp G        &kp H    &kp J  &kp K             &kp L              &kp SEMI
-&mt LSHIFT TAB  &kp Z  &kp X  &kp C      &kp V  &kp B        &kp N    &kp M  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp FSLH  &en_gui_dot LEFT_GUI 0
-                              &kp LCTRL  &la 5  &kp SPACE    &kp RET  &mo 2  &kp LALT
+         &kp Q            &kp W            &kp E              &kp R                &kp T        &kp Y    &kp U                 &kp I               &kp O              &kp P
+         &hml LEFT_GUI A  &hml LEFT_ALT S  &hml LEFT_SHIFT D  &hml LEFT_CONTROL F  &kp G        &kp H    &hmr RIGHT_CONTROL J  &hmr RIGHT_SHIFT K  &hmr LEFT_ALT L    &hmr RIGHT_GUI SEMI
+&kp TAB  &kp Z            &kp X            &kp C              &kp V                &kp B        &kp N    &kp M                 &kp LEFT_BRACKET    &kp RIGHT_BRACKET  &kp FSLH             &en_dot
+                                           &kp LCTRL          &la 5                &kp SPACE    &kp RET  &mo 2                 &kp LALT
             >;
 
             display-name = "En";
@@ -352,10 +352,10 @@
 
         ru {
             bindings = <
-                &kp RU_CYRILLIC_SHORT_I  &kp RU_CYRILLIC_TSE   &kp RU_CYRILLIC_U   &kp RU_CYRILLIC_KA  &RU_IE_IO             &kp RU_CYRILLIC_EN  &kp RU_CYRILLIC_GHE  &RU_SHCHA_SHCHA     &kp RU_CYRILLIC_ZE  &kp RU_CYRILLIC_HA
-                &kp RU_CYRILLIC_EF       &kp RU_CYRILLIC_YERU  &kp RU_CYRILLIC_VE  &kp RU_CYRILLIC_A   &kp RU_CYRILLIC_PE    &kp RU_CYRILLIC_ER  &kp RU_CYRILLIC_O    &kp RU_CYRILLIC_EL  &kp RU_CYRILLIC_DE  &kp RU_CYRILLIC_ZHE
-&mt LSHIFT TAB  &kp RU_CYRILLIC_YA       &kp RU_CYRILLIC_CHE   &kp RU_CYRILLIC_ES  &kp RU_CYRILLIC_EM  &kp RU_CYRILLIC_I     &kp RU_CYRILLIC_TE  &RU_SOFT_HARD_SIGN   &kp RU_CYRILLIC_BE  &kp RU_CYRILLIC_YU  &kp RU_CYRILLIC_E    &mt LGUI RU_PERIOD
-                                                               &kp LCTRL           &mo 5               &kp SPACE             &kp RET             &mo 3                &kp LALT
+         &kp RU_CYRILLIC_SHORT_I       &kp RU_CYRILLIC_TSE             &kp RU_CYRILLIC_U               &kp RU_CYRILLIC_KA               &RU_IE_IO             &kp RU_CYRILLIC_EN  &kp RU_CYRILLIC_GHE               &RU_SHCHA_SHCHA                  &kp RU_CYRILLIC_ZE            &kp RU_CYRILLIC_HA
+         &hml LEFT_GUI RU_CYRILLIC_EF  &hml LEFT_ALT RU_CYRILLIC_YERU  &hml LEFT_SHIFT RU_CYRILLIC_VE  &hml LEFT_CONTROL RU_CYRILLIC_A  &kp RU_CYRILLIC_PE    &kp RU_CYRILLIC_ER  &hmr RIGHT_CONTROL RU_CYRILLIC_O  &hmr RIGHT_SHIFT RU_CYRILLIC_EL  &hmr LEFT_ALT RU_CYRILLIC_DE  &hmr RIGHT_GUI RU_CYRILLIC_ZHE
+&kp TAB  &kp RU_CYRILLIC_YA            &kp RU_CYRILLIC_CHE             &kp RU_CYRILLIC_ES              &kp RU_CYRILLIC_EM               &kp RU_CYRILLIC_I     &kp RU_CYRILLIC_TE  &RU_SOFT_HARD_SIGN                &kp RU_CYRILLIC_BE               &kp RU_CYRILLIC_YU            &kp RU_CYRILLIC_E               &kp RU_PERIOD
+                                                                       &kp LCTRL                       &mo 5                            &kp SPACE             &kp RET             &mo 3                             &kp LALT
             >;
 
             display-name = "Ru";
