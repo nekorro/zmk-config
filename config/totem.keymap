@@ -205,7 +205,7 @@
         RU_EXCL_QUEST: RU_EXCL_QUEST {
             compatible = "zmk,behavior-mod-morph";
             label = "RU_EXCL_QUEST";
-            bindings = <&en DOUBLE_QUOTES>, <&en SINGLE_QUOTE>;
+            bindings = <&en LS(EXCLAMATION)>, <&en QUESTION>;
 
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
@@ -362,10 +362,10 @@
 
         sym {
             bindings = <
-           &kp AT               &kp HASH              &kp AMPERSAND         &kp PIPE                 &EXCL_QUEST         &kp GRAVE    &kp N7  &kp N8  &kp N9  &kp ASTRK
-           &hml LEFT_GUI CARET  &hml LEFT_ALT DOLLAR  &hml LEFT_SHIFT PLUS  &hml LEFT_CONTROL MINUS  &kp EQUAL           &DQ_SQ       &kp N4  &kp N5  &kp N6  &kp N0
-&kp TILDE  &kp BACKSLASH        &SBR_SHIFT_CLOSE      &CBR_SHIFT_CLOSE      &BR_SHIFT_CLOSE          &TBR_SHIFT_CLOSE    &COLON_SEMI  &kp N1  &kp N2  &kp N3  &kp SLASH  &trans
-                                                      &trans                &mo 5                    &trans              &trans       &trans  &trans
+           &kp AT               &kp HASH              &kp AMPERSAND         &kp PIPE                 &EXCL_QUEST         &kp GRAVE    &kp N7                 &kp N8               &kp N9            &kp ASTRK
+           &hml LEFT_GUI CARET  &hml LEFT_ALT DOLLAR  &hml LEFT_SHIFT PLUS  &hml LEFT_CONTROL MINUS  &kp EQUAL           &DQ_SQ       &hmr RIGHT_CONTROL N4  &hmr RIGHT_SHIFT N5  &hmr LEFT_ALT N6  &hmr LEFT_GUI N0
+&kp TILDE  &kp BACKSLASH        &SBR_SHIFT_CLOSE      &CBR_SHIFT_CLOSE      &BR_SHIFT_CLOSE          &TBR_SHIFT_CLOSE    &COLON_SEMI  &kp N1                 &kp N2               &kp N3            &kp SLASH         &trans
+                                                      &trans                &mo 5                    &trans              &trans       &trans                 &trans
             >;
 
             label = "Sym";
@@ -376,7 +376,7 @@
             bindings = <
            &en AT                  &en HASH                 &en AMPERSAND         &kp PIPE                 &RU_EXCL_QUEST         &en GRAVE       &kp N7                 &kp N8               &kp N9            &kp ASTRK
            &hml_en LEFT_GUI CARET  &hml_en LEFT_ALT DOLLAR  &hml LEFT_SHIFT PLUS  &hml LEFT_CONTROL MINUS  &kp EQUAL              &RU_DQ_SQ       &hmr RIGHT_CONTROL N4  &hmr RIGHT_SHIFT N5  &hmr LEFT_ALT N6  &hmr RIGHT_GUI N0
-&en TILDE  &kp BACKSLASH           &RU_SBR_SHIFT_CLOSE      &RU_CBR_SHIFT_CLOSE   &BR_SHIFT_CLOSE          &RU_TBR_SHIFT_CLOSE    &RU_COLON_SEMI  &kp N1                 &kp N2               &kp N3            &kp SLASH          &trans
+&en TILDE  &kp BACKSLASH           &RU_SBR_SHIFT_CLOSE      &RU_CBR_SHIFT_CLOSE   &BR_SHIFT_CLOSE          &RU_TBR_SHIFT_CLOSE    &RU_COLON_SEMI  &kp N1                 &kp N2               &kp N3            &en SLASH          &trans
                                                             &trans                &mo 5                    &trans                 &trans          &trans                 &trans
             >;
         };
