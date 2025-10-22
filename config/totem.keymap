@@ -374,7 +374,7 @@
         ru_sym {
             label = "RU Sym";
             bindings = <
-           &en AT                  &en HASH                 &en AMPERSAND         &kp PIPE                 &RU_EXCL_QUEST         &en GRAVE       &kp N7                 &kp N8               &kp N9            &kp ASTRK
+           &en AT                  &en HASH                 &en AMPERSAND         &en PIPE                 &RU_EXCL_QUEST         &en GRAVE       &kp N7                 &kp N8               &kp N9            &kp ASTRK
            &hml_en LEFT_GUI CARET  &hml_en LEFT_ALT DOLLAR  &hml LEFT_SHIFT PLUS  &hml LEFT_CONTROL MINUS  &kp EQUAL              &RU_DQ_SQ       &hmr RIGHT_CONTROL N4  &hmr RIGHT_SHIFT N5  &hmr LEFT_ALT N6  &hmr RIGHT_GUI N0
 &en TILDE  &kp BACKSLASH           &RU_SBR_SHIFT_CLOSE      &RU_CBR_SHIFT_CLOSE   &BR_SHIFT_CLOSE          &RU_TBR_SHIFT_CLOSE    &RU_COLON_SEMI  &kp N1                 &kp N2               &kp N3            &en SLASH          &trans
                                                             &trans                &mo 5                    &trans                 &trans          &trans                 &trans
