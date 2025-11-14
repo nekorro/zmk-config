@@ -6,8 +6,8 @@ include:
     shield: totem_right
     artifact-name: totem-dongle-right
   - board: seeeduino_xiao_ble
-    shield: totem_dongle dongle_screen
-    artifact-name: dongle-screen
+    shield: totem_dongle dongle
+    artifact-name: dongle
   - board: seeeduino_xiao_ble
     shield: settings_reset
     artifact-name: totem-settings-reset
