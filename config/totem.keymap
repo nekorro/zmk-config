@@ -277,7 +277,7 @@
             bindings = <&kp QUESTION>, <&kp EXCL>;
 
             #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
+            mods = <(MOD_LSFT|MOD_RSFT|MOD_LALT|MOD_RALT)>;
         };
 
         ru_dot_comma: ru_dot_comma {
@@ -295,7 +295,7 @@
             bindings = <&kp RU_QUESTION>, <&kp RU_EXCLAMATION>;
 
             #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
+            mods = <(MOD_LSFT|MOD_RSFT|MOD_LALT|MOD_RALT)>;
         };
 
         ru_dot: ru_dot {
