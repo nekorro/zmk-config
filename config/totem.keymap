@@ -346,7 +346,7 @@
 
         nav {
             bindings = <
-        &kp LA(F4)    &trans        &trans          &trans            &kp ESC       &kp INSERT  &kp PAGE_UP     &trans          &trans           &kp ESC
+        &kp LA(F4)    &kp LC(F4)    &trans          &trans            &kp ESC       &kp INSERT  &kp PAGE_UP     &trans          &trans           &kp ESC
         &kp LEFT_GUI  &kp LEFT_ALT  &kp LEFT_SHIFT  &kp LEFT_CONTROL  &kp RET       &kp HOME    &kp LEFT_ARROW  &kp UP_ARROW    &kp RIGHT_ARROW  &kp RETURN
 &trans  &trans        &trans        &trans          &trans            &kp DELETE    &kp END     &kp PAGE_DOWN   &kp DOWN_ARROW  &trans           &kp DELETE  &trans
                                     &trans          &trans            &trans        &trans      &mo 5           &trans
