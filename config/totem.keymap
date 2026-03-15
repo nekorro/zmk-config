@@ -89,24 +89,6 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-        CBR_SHIFT_CLOSE: CBR_SHIFT_CLOSE {
-            compatible = "zmk,behavior-mod-morph";
-            label = "CBR_SHIFT_CLOSE";
-            bindings = <&kp LBRC>, <&kp RBRC>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        SBR_SHIFT_CLOSE: SBR_SHIFT_CLOSE {
-            compatible = "zmk,behavior-mod-morph";
-            label = "SBR_SHIFT_CLOSE";
-            bindings = <&kp LBKT>, <&kp RBKT>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
         TBR_SHIFT_CLOSE: TBR_SHIFT_CLOSE {
             compatible = "zmk,behavior-mod-morph";
             label = "TBR_SHIFT_CLOSE";
@@ -224,6 +206,15 @@
             hold-trigger-on-release;
             label = "HMR_COLON";
         };
+
+        EQ_PLUS: EQ_PLUS {
+            compatible = "zmk,behavior-mod-morph";
+            label = "EQ_PLUS";
+            bindings = <&kp KP_EQUAL>, <&kp KP_PLUS>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_RSFT|MOD_LSFT)>;
+        };
     };
 
     combos {
@@ -325,10 +316,10 @@
 
         sym {
             bindings = <
-           &kp AT               &kp HASH              &kp AMPERSAND         &kp PIPE                 &EXCL_QUEST         &kp GRAVE    &kp N7                 &kp N8               &kp N9            &kp ASTRK
-           &hml LEFT_GUI CARET  &hml LEFT_ALT DOLLAR  &hml LEFT_SHIFT PLUS  &hml LEFT_CONTROL MINUS  &kp EQUAL           &DQ_SQ       &hmr RIGHT_CONTROL N4  &hmr RIGHT_SHIFT N5  &hmr LEFT_ALT N6  &hmr LEFT_GUI N0
-&kp TILDE  &kp BACKSLASH        &SBR_SHIFT_CLOSE      &CBR_SHIFT_CLOSE      &BR_SHIFT_CLOSE          &TBR_SHIFT_CLOSE    &COLON_SEMI  &kp N1                 &kp N2               &kp N3            &kp SLASH         &trans
-                                                      &trans                &mo 5                    &trans              &trans       &trans                 &trans
+        &EXCL_QUEST   &kp AT        &kp HASH        &kp DOLLAR        &kp PERCENT    &kp CARET  &kp AMPERSAND   &kp ASTERISK    &kp MINUS        &EQ_PLUS
+        &kp LEFT_GUI  &kp LEFT_ALT  &kp LEFT_SHIFT  &kp LEFT_CONTROL  &trans         &DQ_SQ     &kp LEFT_ARROW  &kp UP_ARROW    &kp RIGHT_ARROW  &trans
+&trans  &kp CARET     &kp AMPS      &kp ASTRK       &kp MINUS         &EQ_PLUS       &kp GRAVE  &kp BACKSLASH   &kp DOWN_ARROW  &kp PIPE         &kp SLASH  &trans
+                                    &trans          &mo 5             &trans         &trans     &trans          &trans
             >;
 
             label = "Sym";
@@ -337,22 +328,22 @@
         ru_sym {
             label = "RU Sym";
             bindings = <
-           &en AT                  &en HASH                 &en AMPERSAND         &en PIPE                 &RU_EXCL_QUEST         &en GRAVE       &kp N7                 &kp N8               &kp N9            &kp ASTRK
-           &hml_en LEFT_GUI CARET  &hml_en LEFT_ALT DOLLAR  &hml LEFT_SHIFT PLUS  &hml LEFT_CONTROL MINUS  &kp EQUAL              &RU_DQ_SQ       &hmr RIGHT_CONTROL N4  &hmr RIGHT_SHIFT N5  &hmr LEFT_ALT N6  &hmr RIGHT_GUI N0
-&en TILDE  &kp BACKSLASH           &RU_SBR_SHIFT_CLOSE      &RU_CBR_SHIFT_CLOSE   &BR_SHIFT_CLOSE          &RU_TBR_SHIFT_CLOSE    &RU_COLON_SEMI  &kp N1                 &kp N2               &kp N3            &en SLASH          &trans
-                                                            &trans                &mo 5                    &trans                 &trans          &trans                 &trans
+        &RU_EXCL_QUEST  &en AT        &en HASH        &en DOLLAR        &en PRCNT    &en CARET  &en AMPS        &kp ASTRK       &kp MINUS        &EQ_PLUS
+        &kp LEFT_GUI    &kp LEFT_ALT  &kp LEFT_SHIFT  &kp LEFT_CONTROL  &trans       &RU_DQ_SQ  &kp LEFT_ARROW  &kp UP_ARROW    &kp RIGHT_ARROW  &RU_COLON_SEMI
+&trans  &en CARET       &en AMPS      &kp ASTRK       &kp MINUS         &EQ_PLUS     &en GRAVE  &kp BACKSLASH   &kp DOWN_ARROW  &en PIPE         &en SLASH       &trans
+                                      &trans          &mo 5             &trans       &trans     &trans          &trans
             >;
         };
 
-        nav {
+        nav_dig {
             bindings = <
-        &kp LA(F4)    &kp LC(F4)    &trans          &trans            &kp ESC       &kp INSERT  &kp PAGE_UP     &trans          &trans           &kp ESC
-        &kp LEFT_GUI  &kp LEFT_ALT  &kp LEFT_SHIFT  &kp LEFT_CONTROL  &kp RET       &kp HOME    &kp LEFT_ARROW  &kp UP_ARROW    &kp RIGHT_ARROW  &kp RETURN
-&trans  &trans        &trans        &trans          &trans            &kp DELETE    &kp END     &kp PAGE_DOWN   &kp DOWN_ARROW  &trans           &kp DELETE  &trans
-                                    &trans          &trans            &trans        &trans      &mo 5           &trans
+        &kp LA(F4)  &kp LC(F4)      &trans          &trans           &kp ESC       &kp PLUS   &kp N7                 &kp N8               &kp N9             &kp EQUAL
+        &kp TAB     &kp LEFT_ARROW  &kp UP_ARROW    &kp RIGHT_ARROW  &kp RET       &kp MINUS  &hmr RIGHT_CONTROL N4  &hmr RIGHT_SHIFT N5  &hmr RIGHT_ALT N6  &hmr RIGHT_GUI N0
+&trans  &trans      &trans          &kp DOWN_ARROW  &trans           &kp DELETE    &kp ASTRK  &kp N1                 &kp N2               &kp N3             &kp SLASH          &trans
+                                    &trans          &trans           &trans        &trans     &mo 5                  &trans
             >;
 
-            label = "Nav";
+            label = "Nav Dig";
         };
 
         fn {
