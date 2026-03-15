@@ -80,51 +80,6 @@
             mods = <(MOD_LALT|MOD_RALT)>;
         };
 
-        BR_SHIFT_CLOSE: BR_SHIFT_CLOSE {
-            compatible = "zmk,behavior-mod-morph";
-            label = "BR_SHIFT_CLOSE";
-            bindings = <&kp LPAR>, <&kp RPAR>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        TBR_SHIFT_CLOSE: TBR_SHIFT_CLOSE {
-            compatible = "zmk,behavior-mod-morph";
-            label = "TBR_SHIFT_CLOSE";
-            bindings = <&kp LT>, <&kp GT>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        RU_CBR_SHIFT_CLOSE: RU_CBR_SHIFT_CLOSE {
-            compatible = "zmk,behavior-mod-morph";
-            label = "RU_CBR_SHIFT_CLOSE";
-            bindings = <&en LBRC>, <&en RBRC>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        RU_SBR_SHIFT_CLOSE: RU_SBR_SHIFT_CLOSE {
-            compatible = "zmk,behavior-mod-morph";
-            label = "RU_SBR_SHIFT_CLOSE";
-            bindings = <&en LBKT>, <&en RBKT>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        RU_TBR_SHIFT_CLOSE: RU_TBR_SHIFT_CLOSE {
-            compatible = "zmk,behavior-mod-morph";
-            label = "RU_TBR_SHIFT_CLOSE";
-            bindings = <&en LT>, <&en GT>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
         COLON_SEMI: COLON_SEMI {
             compatible = "zmk,behavior-mod-morph";
             label = "COLON_SEMI";
@@ -179,20 +134,6 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-        hml_en: hml_en {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            require-prior-idle-ms = <150>;
-            tapping-term-ms = <280>;
-            quick-tap-ms = <175>;
-            bindings = <&kp>, <&en>;
-
-            hold-trigger-key-positions = <5 6 7 8 9 15 16 17 18 19 26 27 28 29 35 36 37 31 30>;
-            hold-trigger-on-release;
-            label = "HML_EN";
-        };
-
         hmr_colon: hmr_colon {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -215,18 +156,36 @@
             #binding-cells = <0>;
             mods = <(MOD_RSFT|MOD_LSFT)>;
         };
+
+        LBR_LPAR: LBR_LPAR {
+            compatible = "zmk,behavior-mod-morph";
+            label = "LBR_LPAR";
+            bindings = <&kp LEFT_BRACKET>, <&kp LPAR>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LALT|MOD_RALT)>;
+        };
+
+        RBR_RPAR: RBR_RPAR {
+            compatible = "zmk,behavior-mod-morph";
+            label = "RBR_RPAR";
+            bindings = <&kp RIGHT_BRACKET>, <&kp RPAR>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LALT|MOD_RALT)>;
+        };
     };
 
     combos {
         compatible = "zmk,combos";
 
         extra-nav-left {
-            bindings = <&mo 6>;
+            bindings = <&mo 0>;
             key-positions = <34 33>;
         };
 
         extra-nav-right {
-            bindings = <&mo 6>;
+            bindings = <&mo 0>;
             key-positions = <36 35>;
         };
     };
@@ -292,9 +251,9 @@
 
         en {
             bindings = <
-           &kp Q            &kp W            &kp E              &kp R                &kp T        &kp Y    &kp U                 &kp I               &kp O              &kp P
-           &hml LEFT_GUI A  &hml LEFT_ALT S  &hml LEFT_SHIFT D  &hml LEFT_CONTROL F  &kp G        &kp H    &hmr RIGHT_CONTROL J  &hmr RIGHT_SHIFT K  &hmr LEFT_ALT L    &hmr_colon RIGHT_GUI 0
-&layer_ru  &kp Z            &kp X            &kp C              &kp V                &kp B        &kp N    &kp M                 &kp LEFT_BRACKET    &kp RIGHT_BRACKET  &kp FSLH                &en_dot
+           &kp Q            &kp W            &kp E              &kp R                &kp T        &kp Y    &kp U                 &kp I               &kp O            &kp P
+           &hml LEFT_GUI A  &hml LEFT_ALT S  &hml LEFT_SHIFT D  &hml LEFT_CONTROL F  &kp G        &kp H    &hmr RIGHT_CONTROL J  &hmr RIGHT_SHIFT K  &hmr LEFT_ALT L  &hmr_colon RIGHT_GUI 0
+&layer_ru  &kp Z            &kp X            &kp C              &kp V                &kp B        &kp N    &kp M                 &LBR_LPAR           &RBR_RPAR        &kp FSLH                &en_dot
                                              &kp BACKSPACE      &mo 4                &kp SPACE    &kp RET  &mo 2                 &kp TAB
             >;
 
@@ -316,10 +275,10 @@
 
         sym {
             bindings = <
-        &EXCL_QUEST   &kp AT        &kp HASH        &kp DOLLAR        &kp PERCENT    &kp CARET  &kp AMPERSAND   &kp ASTERISK    &kp MINUS        &EQ_PLUS
-        &kp LEFT_GUI  &kp LEFT_ALT  &kp LEFT_SHIFT  &kp LEFT_CONTROL  &trans         &DQ_SQ     &kp LEFT_ARROW  &kp UP_ARROW    &kp RIGHT_ARROW  &trans
-&trans  &kp CARET     &kp AMPS      &kp ASTRK       &kp MINUS         &EQ_PLUS       &kp GRAVE  &kp BACKSLASH   &kp DOWN_ARROW  &kp PIPE         &kp SLASH  &trans
-                                    &trans          &mo 5             &trans         &trans     &trans          &trans
+        &EXCL_QUEST    &kp AT            &kp HASH        &kp DOLLAR        &kp PERCENT    &kp CARET  &kp AMPERSAND   &kp ASTERISK    &kp MINUS        &EQ_PLUS
+        &kp LEFT_GUI   &kp LEFT_ALT      &kp LEFT_SHIFT  &kp LEFT_CONTROL  &trans         &DQ_SQ     &kp LEFT_ARROW  &kp UP_ARROW    &kp RIGHT_ARROW  &trans
+&trans  &kp LESS_THAN  &kp GREATER_THAN  &kp LPAR        &kp RPAR          &EQ_PLUS       &kp GRAVE  &kp BACKSLASH   &kp DOWN_ARROW  &kp PIPE         &kp SLASH  &trans
+                                         &trans          &mo 5             &trans         &trans     &trans          &trans
             >;
 
             label = "Sym";
@@ -328,18 +287,18 @@
         ru_sym {
             label = "RU Sym";
             bindings = <
-        &RU_EXCL_QUEST  &en AT        &en HASH        &en DOLLAR        &en PRCNT    &en CARET  &en AMPS        &kp ASTRK       &kp MINUS        &EQ_PLUS
-        &kp LEFT_GUI    &kp LEFT_ALT  &kp LEFT_SHIFT  &kp LEFT_CONTROL  &trans       &RU_DQ_SQ  &kp LEFT_ARROW  &kp UP_ARROW    &kp RIGHT_ARROW  &RU_COLON_SEMI
-&trans  &en CARET       &en AMPS      &kp ASTRK       &kp MINUS         &EQ_PLUS     &en GRAVE  &kp BACKSLASH   &kp DOWN_ARROW  &en PIPE         &en SLASH       &trans
-                                      &trans          &mo 5             &trans       &trans     &trans          &trans
+        &RU_EXCL_QUEST  &en AT            &en HASH        &en DOLLAR        &en PRCNT    &en CARET  &en AMPS        &kp ASTRK       &kp MINUS        &EQ_PLUS
+        &kp LEFT_GUI    &kp LEFT_ALT      &kp LEFT_SHIFT  &kp LEFT_CONTROL  &trans       &RU_DQ_SQ  &kp LEFT_ARROW  &kp UP_ARROW    &kp RIGHT_ARROW  &RU_COLON_SEMI
+&trans  &en LESS_THAN   &en GREATER_THAN  &kp LPAR        &kp RPAR          &EQ_PLUS     &en GRAVE  &kp BACKSLASH   &kp DOWN_ARROW  &en PIPE         &en SLASH       &trans
+                                          &trans          &mo 5             &trans       &trans     &trans          &trans
             >;
         };
 
         nav_dig {
             bindings = <
-        &kp LA(F4)  &kp LC(F4)      &trans          &trans           &kp ESC       &kp PLUS   &kp N7                 &kp N8               &kp N9             &kp EQUAL
+        &kp LA(F4)  &kp HOME        &kp INS         &kp PG_UP        &kp ESC       &kp PLUS   &kp N7                 &kp N8               &kp N9             &kp EQUAL
         &kp TAB     &kp LEFT_ARROW  &kp UP_ARROW    &kp RIGHT_ARROW  &kp RET       &kp MINUS  &hmr RIGHT_CONTROL N4  &hmr RIGHT_SHIFT N5  &hmr RIGHT_ALT N6  &hmr RIGHT_GUI N0
-&trans  &trans      &trans          &kp DOWN_ARROW  &trans           &kp DELETE    &kp ASTRK  &kp N1                 &kp N2               &kp N3             &kp SLASH          &trans
+&trans  &kp TAB     &kp END         &kp DOWN_ARROW  &kp PG_DN        &kp DELETE    &kp ASTRK  &kp N1                 &kp N2               &kp N3             &kp SLASH          &trans
                                     &trans          &trans           &trans        &trans     &mo 5                  &trans
             >;
 
@@ -350,30 +309,19 @@
             bindings = <
         &kp C_BRI_UP  &trans        &trans            &trans            &kp C_VOL_UP    &trans  &kp F9  &kp F10  &kp F11  &kp F12
         &kp LEFT_GUI  &kp LEFT_ALT  &kp LSHFT         &kp LEFT_CONTROL  &kp C_MUTE      &trans  &kp F5  &kp F6   &kp F7   &kp F8
-&trans  &kp C_BRI_DN  &kp C_PREV    &kp C_PLAY_PAUSE  &kp C_NEXT        &kp C_VOL_DN    &trans  &kp F1  &kp F2   &kp F3   &kp F4   &tog 7
+&trans  &kp C_BRI_DN  &kp C_PREV    &kp C_PLAY_PAUSE  &kp C_NEXT        &kp C_VOL_DN    &trans  &kp F1  &kp F2   &kp F3   &kp F4   &tog 6
                                     &trans            &trans            &trans          &trans  &trans  &trans
             >;
 
             label = "Fn";
         };
 
-        enav {
-            bindings = <
-        &trans  &trans    &trans    &kp PAGE_UP    &kp INSERT    &kp INSERT  &kp PAGE_UP    &trans    &trans     &trans
-        &trans  &kp LEFT  &kp UP    &kp RIGHT      &kp HOME      &kp HOME    &kp LEFT       &kp UP    &kp RIGHT  &trans
-&trans  &trans  &trans    &kp DOWN  &kp PAGE_DOWN  &kp END       &kp END     &kp PAGE_DOWN  &kp DOWN  &trans     &trans  &trans
-                          &trans    &trans         &trans        &trans      &trans         &trans
-            >;
-
-            label = "Enav";
-        };
-
         Game {
             bindings = <
          &kp TAB    &kp Q  &kp X     &kp R  &kp T        &kp Y      &kp U   &kp I      &kp O    &kp P
          &kp LSHFT  &kp A  &kp W     &kp D  &kp G        &kp H      &kp J   &kp K      &kp L    &kp SEMI
-&kp ESC  &kp LCTRL  &kp Z  &kp S     &kp C  &kp B        &kp N      &kp M   &kp COMMA  &kp DOT  &kp FSLH  &tog 7
-                           &kp LALT  &mo 8  &kp SPACE    &kp ENTER  &trans  &trans
+&kp ESC  &kp LCTRL  &kp Z  &kp S     &kp C  &kp B        &kp N      &kp M   &kp COMMA  &kp DOT  &kp FSLH  &tog 6
+                           &kp LALT  &mo 7  &kp SPACE    &kp ENTER  &trans  &trans
             >;
 
             label = "Game";
@@ -388,15 +336,6 @@
             >;
 
             label = "Game+";
-        };
-
-        layer_9 {
-            bindings = <
-        &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-        &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-                        &trans  &trans  &trans    &trans  &trans  &trans
-            >;
         };
     };
 
