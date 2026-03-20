@@ -179,13 +179,8 @@
     combos {
         compatible = "zmk,combos";
 
-        extra-nav-left {
-            bindings = <&mo 0>;
-            key-positions = <34 33>;
-        };
-
         extra-nav-right {
-            bindings = <&mo 0>;
+            bindings = <&mo 4>;
             key-positions = <36 35>;
         };
     };
