@@ -272,7 +272,7 @@
             bindings = <
         &EXCL_QUEST    &kp AT            &kp HASH        &kp DOLLAR        &kp PERCENT    &kp CARET  &kp AMPERSAND   &kp ASTERISK    &kp MINUS        &EQ_PLUS
         &kp LEFT_GUI   &kp LEFT_ALT      &kp LEFT_SHIFT  &kp LEFT_CONTROL  &trans         &DQ_SQ     &kp LEFT_ARROW  &kp UP_ARROW    &kp RIGHT_ARROW  &trans
-&trans  &kp LESS_THAN  &kp GREATER_THAN  &kp LPAR        &kp RPAR          &EQ_PLUS       &kp GRAVE  &kp BACKSLASH   &kp DOWN_ARROW  &kp PIPE         &kp SLASH  &trans
+&trans  &kp LESS_THAN  &kp GREATER_THAN  &kp LPAR        &kp RPAR          &trans         &kp GRAVE  &kp BACKSLASH   &kp DOWN_ARROW  &kp PIPE         &kp SLASH  &trans
                                          &trans          &mo 5             &trans         &trans     &trans          &trans
             >;
 
@@ -284,17 +284,17 @@
             bindings = <
         &RU_EXCL_QUEST  &en AT            &en HASH        &en DOLLAR        &en PRCNT    &en CARET  &en AMPS        &kp ASTRK       &kp MINUS        &EQ_PLUS
         &kp LEFT_GUI    &kp LEFT_ALT      &kp LEFT_SHIFT  &kp LEFT_CONTROL  &trans       &RU_DQ_SQ  &kp LEFT_ARROW  &kp UP_ARROW    &kp RIGHT_ARROW  &RU_COLON_SEMI
-&trans  &en LESS_THAN   &en GREATER_THAN  &kp LPAR        &kp RPAR          &EQ_PLUS     &en GRAVE  &kp BACKSLASH   &kp DOWN_ARROW  &en PIPE         &en SLASH       &trans
+&trans  &en LESS_THAN   &en GREATER_THAN  &kp LPAR        &kp RPAR          &trans       &en GRAVE  &kp BACKSLASH   &kp DOWN_ARROW  &en PIPE         &en SLASH       &trans
                                           &trans          &mo 5             &trans       &trans     &trans          &trans
             >;
         };
 
         nav_dig {
             bindings = <
-        &kp LA(F4)  &kp HOME        &kp INS         &kp PG_UP        &kp ESC       &kp PLUS   &kp N7                 &kp N8               &kp N9             &kp EQUAL
-        &kp TAB     &kp LEFT_ARROW  &kp UP_ARROW    &kp RIGHT_ARROW  &kp RET       &kp MINUS  &hmr RIGHT_CONTROL N4  &hmr RIGHT_SHIFT N5  &hmr RIGHT_ALT N6  &hmr RIGHT_GUI N0
-&trans  &kp TAB     &kp END         &kp DOWN_ARROW  &kp PG_DN        &kp DELETE    &kp ASTRK  &kp N1                 &kp N2               &kp N3             &kp KP_DIVIDE      &trans
-                                    &trans          &trans           &trans        &trans     &mo 5                  &trans
+        &kp LA(F4)         &kp HOME                  &kp INS                   &kp PG_UP                      &kp ESC       &kp PLUS   &kp N7                 &kp N8               &kp N9             &kp EQUAL
+        &hml LEFT_GUI TAB  &hml LEFT_ALT LEFT_ARROW  &hml LEFT_SHIFT UP_ARROW  &hml LEFT_CONTROL RIGHT_ARROW  &kp RET       &kp MINUS  &hmr RIGHT_CONTROL N4  &hmr RIGHT_SHIFT N5  &hmr RIGHT_ALT N6  &hmr RIGHT_GUI N0
+&trans  &kp TAB            &kp END                   &kp DOWN_ARROW            &kp PG_DN                      &kp DELETE    &kp ASTRK  &kp N1                 &kp N2               &kp N3             &kp KP_DIVIDE      &trans
+                                                     &trans                    &trans                         &trans        &trans     &mo 5                  &trans
             >;
 
             label = "Nav Dig";
