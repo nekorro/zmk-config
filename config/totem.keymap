@@ -291,10 +291,10 @@
 
         nav_dig {
             bindings = <
-        &kp LA(F4)         &kp HOME                  &kp INS                   &kp PG_UP                      &kp ESC       &kp PLUS   &kp N7                 &kp N8               &kp N9             &kp EQUAL
-        &hml LEFT_GUI TAB  &hml LEFT_ALT LEFT_ARROW  &hml LEFT_SHIFT UP_ARROW  &hml LEFT_CONTROL RIGHT_ARROW  &kp RET       &kp MINUS  &hmr RIGHT_CONTROL N4  &hmr RIGHT_SHIFT N5  &hmr RIGHT_ALT N6  &hmr RIGHT_GUI N0
-&trans  &kp TAB            &kp END                   &kp DOWN_ARROW            &kp PG_DN                      &kp DELETE    &kp ASTRK  &kp N1                 &kp N2               &kp N3             &kp KP_DIVIDE      &trans
-                                                     &trans                    &trans                         &trans        &trans     &mo 5                  &trans
+        &kp LA(F4)       &kp HOME                  &kp INS                   &kp PG_UP                      &kp ESC       &kp PLUS   &kp N7                 &kp N8               &kp N9             &kp EQUAL
+        &hml LEFT_GUI A  &hml LEFT_ALT LEFT_ARROW  &hml LEFT_SHIFT UP_ARROW  &hml LEFT_CONTROL RIGHT_ARROW  &kp RET       &kp MINUS  &hmr RIGHT_CONTROL N4  &hmr RIGHT_SHIFT N5  &hmr RIGHT_ALT N6  &hmr RIGHT_GUI N0
+&trans  &kp TAB          &kp END                   &kp DOWN_ARROW            &kp PG_DN                      &kp DELETE    &kp ASTRK  &kp N1                 &kp N2               &kp N3             &kp KP_DIVIDE      &trans
+                                                   &trans                    &trans                         &trans        &trans     &mo 5                  &trans
             >;
 
             label = "Nav Dig";
