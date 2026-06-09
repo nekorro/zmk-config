@@ -313,9 +313,9 @@
 
         Game {
             bindings = <
-         &kp TAB    &kp Q  &kp X     &kp R  &kp T        &kp Y      &kp U   &kp I      &kp O    &kp P
-         &kp LSHFT  &kp A  &kp W     &kp D  &kp G        &kp H      &kp J   &kp K      &kp L    &kp SEMI
-&kp ESC  &kp LCTRL  &kp Z  &kp S     &kp C  &kp B        &kp N      &kp M   &kp COMMA  &kp DOT  &kp FSLH  &tog 6
+         &kp TAB    &kp Q  &kp G     &kp E  &kp R        &kp Y      &kp U   &kp I      &kp O    &kp P
+         &kp LSHFT  &kp A  &kp W     &kp D  &kp F        &kp H      &kp J   &kp K      &kp L    &kp SEMI
+&kp ESC  &kp LCTRL  &kp Z  &kp S     &kp C  &kp V        &kp N      &kp M   &kp COMMA  &kp DOT  &kp FSLH  &tog 6
                            &kp LALT  &mo 7  &kp SPACE    &kp ENTER  &trans  &trans
             >;
 
