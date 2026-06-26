@@ -179,9 +179,9 @@
     combos {
         compatible = "zmk,combos";
 
-        extra-nav-right {
-            bindings = <&mo 4>;
-            key-positions = <36 35>;
+        caps {
+            bindings = <&kp CLCK>;
+            key-positions = <10 11>;
         };
     };
 
