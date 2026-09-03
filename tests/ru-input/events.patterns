@@ -1,0 +1,2 @@
+s/.*hid_listener_keycode/kp/p
+s/.*zmk_hid_masked_modifiers_set: /mask: /p

@@ -1,5 +1,31 @@
 on: [push, pull_request, workflow_dispatch]
 
 jobs:
+  test:
+    name: Native keymap regression tests
+    runs-on: ubuntu-latest
+    container:
+      image: docker.io/zmkfirmware/zmk-build-arm:3.5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Initialize test workspace
+        run: |
+          mkdir -p "${RUNNER_TEMP}/zmk-tests/config"
+          cp config/west.yml "${RUNNER_TEMP}/zmk-tests/config/west.yml"
+          cd "${RUNNER_TEMP}/zmk-tests"
+          west init -l config
+          west update --fetch-opt=--filter=tree:0
+          west zephyr-export
+      - name: Run native tests against the real keymap
+        run: |
+          cd "${RUNNER_TEMP}/zmk-tests/zmk/app"
+          ZMK_EXTRA_MODULES="${GITHUB_WORKSPACE}" ./run-test.sh "${GITHUB_WORKSPACE}/tests"
+      - name: Upload test logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: native-test-logs
+          path: ${{ runner.temp }}/zmk-tests/zmk/app/build/tests/**/*.log
+
   build:
     uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@v0.3.0

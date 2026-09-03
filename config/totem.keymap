@@ -11,6 +11,7 @@
 // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
 
 #include "keys_ru.h"
+#include "keymap_config.h"
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 
@@ -19,34 +20,26 @@
         nav_alt_tab: nav_alt_tab {
             compatible = "zmk,behavior-layer-alt-tab";
             #binding-cells = <0>;
-            release-layer = <4>;
+            release-layer = <LAYER_NAV_DIG>;
         };
 
         hml: home_row_mod_left {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "balanced";
-            require-prior-idle-ms = <150>;
-            tapping-term-ms = <280>;
-            quick-tap-ms = <175>;
+            HRM_COMMON_PROPERTIES
             bindings = <&kp>, <&kp>;
 
-            hold-trigger-key-positions = <5 6 7 8 9 15 16 17 18 19 26 27 28 29 35 36 37 31 30>;
-            hold-trigger-on-release;
+            hold-trigger-key-positions = <RIGHT_HAND_POSITIONS>;
             label = "HML";
         };
 
         hmr: home_row_mod_right {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "balanced";
-            require-prior-idle-ms = <150>;
-            tapping-term-ms = <280>;
-            quick-tap-ms = <175>;
+            HRM_COMMON_PROPERTIES
             bindings = <&kp>, <&kp>;
 
-            hold-trigger-key-positions = <0 1 2 3 4 10 11 12 13 14 20 21 22 23 24 32 25 33 34>;
-            hold-trigger-on-release;
+            hold-trigger-key-positions = <LEFT_HAND_POSITIONS>;
             label = "HMR";
         };
 
@@ -68,9 +61,9 @@
             mods = <(MOD_LALT|MOD_RALT)>;
         };
 
-        RU_SHCHA_SHCHA: RU_SHCHA_SHCHA {
+        RU_SHA_SHCHA: RU_SHA_SHCHA {
             compatible = "zmk,behavior-mod-morph";
-            label = "RU_SHCHA_SHCHA";
+            label = "RU_SHA_SHCHA";
             bindings = <&kp RU_CYRILLIC_SHA>, <&kp RU_CYRILLIC_SHCHA>;
 
             #binding-cells = <0>;
@@ -116,7 +109,7 @@
         RU_COLON_SEMI: RU_COLON_SEMI {
             compatible = "zmk,behavior-mod-morph";
             label = "RU_COLON_SEMI";
-            bindings = <&en COLON>, <&en SEMI>;
+            bindings = <&kp RU_COLON>, <&kp RU_SEMI>;
 
             #binding-cells = <0>;
             mods = <(MOD_RSFT|MOD_LSFT)>;
@@ -125,7 +118,7 @@
         RU_EXCL_QUEST: RU_EXCL_QUEST {
             compatible = "zmk,behavior-mod-morph";
             label = "RU_EXCL_QUEST";
-            bindings = <&en LS(EXCLAMATION)>, <&en QUESTION>;
+            bindings = <&kp RU_EXCL>, <&kp RU_QMARK>;
 
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
@@ -134,7 +127,7 @@
         RU_DQ_SQ: RU_DQ_SQ {
             compatible = "zmk,behavior-mod-morph";
             label = "RU_DQ_SQ";
-            bindings = <&en DOUBLE_QUOTES>, <&en SINGLE_QUOTE>;
+            bindings = <&kp RU_DQT>, <&en SINGLE_QUOTE>;
 
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
@@ -143,14 +136,10 @@
         hmr_colon: hmr_colon {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "balanced";
-            require-prior-idle-ms = <150>;
-            tapping-term-ms = <280>;
-            quick-tap-ms = <175>;
+            HRM_COMMON_PROPERTIES
             bindings = <&kp>, <&COLON_SEMI>;
 
-            hold-trigger-key-positions = <0 1 2 3 4 10 11 12 13 14 20 21 22 23 24 32 25 33 34>;
-            hold-trigger-on-release;
+            hold-trigger-key-positions = <LEFT_HAND_POSITIONS>;
             label = "HMR_COLON";
         };
 
@@ -182,15 +171,6 @@
         };
     };
 
-    combos {
-        compatible = "zmk,combos";
-
-        caps {
-            bindings = <&kp CLCK>;
-            key-positions = <10 11>;
-        };
-    };
-
     macros {
         to_ru: to_ru {
             compatible = "zmk,behavior-macro";
@@ -213,7 +193,7 @@
         layer_ru: layer_ru {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&to 1 &to_ru>;
+            bindings = <&to LAYER_RU &to_ru>;
             label = "LAYER_RU";
             wait-ms = <0>;
             tap-ms = <30>;
@@ -222,7 +202,7 @@
         layer_en: layer_en {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&to 0 &to_en>;
+            bindings = <&to LAYER_EN &to_en>;
             label = "LAYER_EN";
             wait-ms = <0>;
             tap-ms = <30>;
@@ -255,7 +235,7 @@
            &kp Q            &kp W            &kp E              &kp R                &kp T        &kp Y    &kp U                 &kp I               &kp O            &kp P
            &hml LEFT_GUI A  &hml LEFT_ALT S  &hml LEFT_SHIFT D  &hml LEFT_CONTROL F  &kp G        &kp H    &hmr RIGHT_CONTROL J  &hmr RIGHT_SHIFT K  &hmr LEFT_ALT L  &hmr_colon RIGHT_GUI 0
 &layer_ru  &kp Z            &kp X            &kp C              &kp V                &kp B        &kp N    &kp M                 &LBR_LPAR           &RBR_RPAR        &kp FSLH                &en_dot
-                                             &kp BACKSPACE      &mo 4                &kp SPACE    &kp RET  &mo 2                 &kp TAB
+                                             &kp BACKSPACE      &mo LAYER_NAV_DIG    &kp SPACE    &kp RET  &mo LAYER_SYM         &kp TAB
             >;
 
             display-name = "En";
@@ -264,10 +244,10 @@
 
         ru {
             bindings = <
-           &kp RU_CYRILLIC_SHORT_I       &kp RU_CYRILLIC_TSE             &kp RU_CYRILLIC_U               &kp RU_CYRILLIC_KA               &RU_IE_IO             &kp RU_CYRILLIC_EN  &kp RU_CYRILLIC_GHE               &RU_SHCHA_SHCHA                  &kp RU_CYRILLIC_ZE            &kp RU_CYRILLIC_HA
+           &kp RU_CYRILLIC_SHORT_I       &kp RU_CYRILLIC_TSE             &kp RU_CYRILLIC_U               &kp RU_CYRILLIC_KA               &RU_IE_IO             &kp RU_CYRILLIC_EN  &kp RU_CYRILLIC_GHE               &RU_SHA_SHCHA                    &kp RU_CYRILLIC_ZE            &kp RU_CYRILLIC_HA
            &hml LEFT_GUI RU_CYRILLIC_EF  &hml LEFT_ALT RU_CYRILLIC_YERU  &hml LEFT_SHIFT RU_CYRILLIC_VE  &hml LEFT_CONTROL RU_CYRILLIC_A  &kp RU_CYRILLIC_PE    &kp RU_CYRILLIC_ER  &hmr RIGHT_CONTROL RU_CYRILLIC_O  &hmr RIGHT_SHIFT RU_CYRILLIC_EL  &hmr LEFT_ALT RU_CYRILLIC_DE  &hmr RIGHT_GUI RU_CYRILLIC_ZHE
 &layer_en  &kp RU_CYRILLIC_YA            &kp RU_CYRILLIC_CHE             &kp RU_CYRILLIC_ES              &kp RU_CYRILLIC_EM               &kp RU_CYRILLIC_I     &kp RU_CYRILLIC_TE  &RU_SOFT_HARD_SIGN                &kp RU_CYRILLIC_BE               &kp RU_CYRILLIC_YU            &kp RU_CYRILLIC_E               &kp RU_DOT
-                                                                         &kp BACKSPACE                   &mo 4                            &kp SPACE             &kp RET             &mo 3                             &kp TAB
+                                                                         &kp BACKSPACE                   &mo LAYER_NAV_DIG                &kp SPACE             &kp RET             &mo LAYER_RU_SYM                  &kp TAB
             >;
 
             display-name = "Ru";
@@ -279,7 +259,7 @@
         &EXCL_QUEST    &kp AT            &kp HASH        &kp DOLLAR        &kp PERCENT    &kp CARET  &kp AMPERSAND   &kp ASTERISK    &kp MINUS        &EQ_PLUS
         &kp LEFT_GUI   &kp LEFT_ALT      &kp LEFT_SHIFT  &kp LEFT_CONTROL  &kp PIPE       &DQ_SQ     &kp LEFT_ARROW  &kp UP_ARROW    &kp RIGHT_ARROW  &trans
 &trans  &kp LESS_THAN  &kp GREATER_THAN  &kp LPAR        &kp RPAR          &trans         &kp GRAVE  &kp TILDE       &kp DOWN_ARROW  &kp BACKSLASH    &kp SLASH  &trans
-                                         &trans          &mo 5             &trans         &trans     &trans          &trans
+                                         &trans          &mo LAYER_FN      &trans         &trans     &trans          &trans
             >;
 
             label = "Sym";
@@ -288,10 +268,10 @@
         ru_sym {
             label = "RU Sym";
             bindings = <
-        &RU_EXCL_QUEST  &en AT            &en HASH        &en DOLLAR        &en PRCNT    &en CARET  &en AMPS        &kp ASTRK       &kp MINUS        &EQ_PLUS
+        &RU_EXCL_QUEST  &en AT            &en HASH        &en DOLLAR        &kp RU_PRCNT &en CARET  &en AMPS        &kp ASTRK       &kp MINUS        &EQ_PLUS
         &kp LEFT_GUI    &kp LEFT_ALT      &kp LEFT_SHIFT  &kp LEFT_CONTROL  &en PIPE     &RU_DQ_SQ  &kp LEFT_ARROW  &kp UP_ARROW    &kp RIGHT_ARROW  &RU_COLON_SEMI
-&trans  &en LESS_THAN   &en GREATER_THAN  &kp LPAR        &kp RPAR          &trans       &en GRAVE  &kp TILDE       &kp DOWN_ARROW  &kp BACKSLASH    &en SLASH       &trans
-                                          &trans          &mo 5             &trans       &trans     &trans          &trans
+&trans  &en LESS_THAN   &en GREATER_THAN  &kp LPAR        &kp RPAR          &trans       &en GRAVE  &en TILDE       &kp DOWN_ARROW  &kp BACKSLASH    &kp RU_FSLH     &trans
+                                          &trans          &mo LAYER_FN      &trans       &trans     &trans          &trans
             >;
         };
 
@@ -300,7 +280,7 @@
                 &kp LA(F4)       &kp HOME                  &kp INS                   &kp PG_UP                      &kp ESC       &kp PLUS   &kp N7                 &kp N8               &kp N9             &kp EQUAL
                 &hml LEFT_GUI A  &hml LEFT_ALT LEFT_ARROW  &hml LEFT_SHIFT UP_ARROW  &hml LEFT_CONTROL RIGHT_ARROW  &kp RET       &kp MINUS  &hmr RIGHT_CONTROL N4  &hmr RIGHT_SHIFT N5  &hmr RIGHT_ALT N6  &hmr RIGHT_GUI N0
 &nav_alt_tab    &kp TAB          &kp END                   &kp DOWN_ARROW            &kp PG_DN                      &kp DELETE    &kp ASTRK  &kp N1                 &kp N2               &kp N3             &kp KP_DIVIDE      &trans
-                                                           &trans                    &trans                         &trans        &trans     &mo 5                  &trans
+                                                           &trans                    &trans                         &trans        &trans     &mo LAYER_FN           &trans
             >;
 
             label = "Nav Dig";
@@ -310,7 +290,7 @@
             bindings = <
         &kp C_BRI_UP  &trans        &kp CAPSLOCK      &trans            &kp C_VOL_UP    &trans  &kp F9  &kp F10  &kp F11  &kp F12
         &kp LEFT_GUI  &kp LEFT_ALT  &kp LSHFT         &kp LEFT_CONTROL  &kp C_MUTE      &trans  &kp F5  &kp F6   &kp F7   &kp F8
-&trans  &kp C_BRI_DN  &kp C_PREV    &kp C_PLAY_PAUSE  &kp C_NEXT        &kp C_VOL_DN    &trans  &kp F1  &kp F2   &kp F3   &kp F4   &tog 6
+&trans  &kp C_BRI_DN  &kp C_PREV    &kp C_PLAY_PAUSE  &kp C_NEXT        &kp C_VOL_DN    &trans  &kp F1  &kp F2   &kp F3   &kp F4   &tog LAYER_GAME
                                     &trans            &trans            &trans          &trans  &trans  &trans
             >;
 
@@ -321,8 +301,8 @@
             bindings = <
          &kp ESC    &kp Q  &kp X     &kp R  &kp T        &kp Y      &kp U   &kp I      &kp O    &kp P
          &kp LSHFT  &kp A  &kp W     &kp D  &kp G        &kp H      &kp J   &kp K      &kp L    &kp SEMI
-&kp TAB  &kp LCTRL  &kp Z  &kp S     &kp C  &kp B        &kp N      &kp M   &kp COMMA  &kp DOT  &kp FSLH  &tog 6
-                           &kp LALT  &mo 7  &kp SPACE    &kp ENTER  &trans  &trans
+&kp TAB  &kp LCTRL  &kp Z  &kp S     &kp C  &kp B        &kp N      &kp M   &kp COMMA  &kp DOT  &kp FSLH  &tog LAYER_GAME
+                           &kp LALT  &mo LAYER_GAME_EXTRA  &kp SPACE    &kp ENTER  &trans  &trans
             >;
 
             label = "Game";
@@ -340,5 +320,4 @@
         };
     };
 
-    conditional_layers { compatible = "zmk,conditional-layers"; };
 };

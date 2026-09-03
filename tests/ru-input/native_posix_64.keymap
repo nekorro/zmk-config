@@ -1,0 +1,49 @@
+#include "../../config/totem.keymap"
+#include <dt-bindings/zmk/kscan_mock.h>
+
+&kscan {
+    rows = <1>;
+    columns = <38>;
+    events = <
+        /* Select Russian, then type yo immediately after another letter. */
+        ZMK_MOCK_PRESS(0,20,100) ZMK_MOCK_RELEASE(0,20,400)
+        ZMK_MOCK_PRESS(0,5,10) ZMK_MOCK_RELEASE(0,5,10)
+        ZMK_MOCK_PRESS(0,18,20) ZMK_MOCK_PRESS(0,4,20)
+        ZMK_MOCK_RELEASE(0,4,20) ZMK_MOCK_RELEASE(0,18,400)
+
+        /* Left Alt + sha / soft sign, with no need to wait 280 ms. */
+        ZMK_MOCK_PRESS(0,11,20) ZMK_MOCK_PRESS(0,7,20)
+        ZMK_MOCK_RELEASE(0,7,20) ZMK_MOCK_RELEASE(0,11,400)
+        ZMK_MOCK_PRESS(0,11,20) ZMK_MOCK_PRESS(0,27,20)
+        ZMK_MOCK_RELEASE(0,27,20) ZMK_MOCK_RELEASE(0,11,400)
+
+        /* Uppercase yo: the morph must mask Alt while preserving Shift. */
+        ZMK_MOCK_PRESS(0,12,350) ZMK_MOCK_PRESS(0,18,350)
+        ZMK_MOCK_PRESS(0,4,20) ZMK_MOCK_RELEASE(0,4,20)
+        ZMK_MOCK_RELEASE(0,18,20) ZMK_MOCK_RELEASE(0,12,400)
+
+        /* Same-hand Alt is still usable after a deliberate long hold. */
+        ZMK_MOCK_PRESS(0,11,350)
+        ZMK_MOCK_PRESS(0,4,20) ZMK_MOCK_RELEASE(0,4,20)
+        ZMK_MOCK_RELEASE(0,11,400)
+
+        /* Russian punctuation must not temporarily switch the OS to EN. */
+        ZMK_MOCK_PRESS(0,36,20)
+        ZMK_MOCK_PRESS(0,0,100) ZMK_MOCK_RELEASE(0,0,100)
+        ZMK_MOCK_PRESS(0,19,100) ZMK_MOCK_RELEASE(0,19,100)
+        ZMK_MOCK_PRESS(0,4,100) ZMK_MOCK_RELEASE(0,4,100)
+        ZMK_MOCK_PRESS(0,15,100) ZMK_MOCK_RELEASE(0,15,100)
+        ZMK_MOCK_PRESS(0,30,100) ZMK_MOCK_RELEASE(0,30,100)
+        ZMK_MOCK_PRESS(0,12,20)
+        ZMK_MOCK_PRESS(0,0,100) ZMK_MOCK_RELEASE(0,0,100)
+        ZMK_MOCK_PRESS(0,19,100) ZMK_MOCK_RELEASE(0,19,100)
+
+        /* Apostrophe still needs EN; Shift chooses it through the morph. */
+        ZMK_MOCK_PRESS(0,15,100) ZMK_MOCK_RELEASE(0,15,100)
+        ZMK_MOCK_RELEASE(0,12,100)
+
+        /* Tilde must use EN too: Shift+grave on RU would produce capital yo. */
+        ZMK_MOCK_PRESS(0,27,100) ZMK_MOCK_RELEASE(0,27,100)
+        ZMK_MOCK_RELEASE(0,36,400)
+    >;
+};

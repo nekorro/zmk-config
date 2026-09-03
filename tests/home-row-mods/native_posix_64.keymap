@@ -1,0 +1,44 @@
+#include "../../config/totem.keymap"
+#include <dt-bindings/zmk/kscan_mock.h>
+
+&kscan {
+    rows = <1>;
+    columns = <38>;
+    events = <
+        /* A recent letter must not prevent a deliberate left Shift hold. */
+        ZMK_MOCK_PRESS(0,0,10) ZMK_MOCK_RELEASE(0,0,10)
+        ZMK_MOCK_PRESS(0,12,350) ZMK_MOCK_RELEASE(0,12,400)
+
+        /* Tap S, then hold the same key for Alt, without a typing pause. */
+        ZMK_MOCK_PRESS(0,11,30) ZMK_MOCK_RELEASE(0,11,30)
+        ZMK_MOCK_PRESS(0,11,350) ZMK_MOCK_RELEASE(0,11,400)
+
+        /* The right-hand definition must also allow a hold after typing. */
+        ZMK_MOCK_PRESS(0,5,10) ZMK_MOCK_RELEASE(0,5,10)
+        ZMK_MOCK_PRESS(0,17,350) ZMK_MOCK_RELEASE(0,17,400)
+
+        /* The colon variant shares the same tap-then-hold policy. */
+        ZMK_MOCK_PRESS(0,19,30) ZMK_MOCK_RELEASE(0,19,30)
+        ZMK_MOCK_PRESS(0,19,350) ZMK_MOCK_RELEASE(0,19,400)
+
+        /* Nested presses on the same hand must remain plain D and F. */
+        ZMK_MOCK_PRESS(0,12,20) ZMK_MOCK_PRESS(0,13,20)
+        ZMK_MOCK_RELEASE(0,13,20) ZMK_MOCK_RELEASE(0,12,400)
+
+        /* A rolling release across hands must remain plain D and J. */
+        ZMK_MOCK_PRESS(0,12,20) ZMK_MOCK_PRESS(0,16,20)
+        ZMK_MOCK_RELEASE(0,12,20) ZMK_MOCK_RELEASE(0,16,400)
+
+        /* An opposite-hand chord can resolve Shift before the timeout. */
+        ZMK_MOCK_PRESS(0,12,20) ZMK_MOCK_PRESS(0,6,20)
+        ZMK_MOCK_RELEASE(0,6,20) ZMK_MOCK_RELEASE(0,12,400)
+
+        /* Enter Game through Sym -> Fn. Shift+A must not become Caps Lock. */
+        ZMK_MOCK_PRESS(0,36,10) ZMK_MOCK_PRESS(0,33,10)
+        ZMK_MOCK_PRESS(0,31,10) ZMK_MOCK_RELEASE(0,31,10)
+        ZMK_MOCK_RELEASE(0,33,10) ZMK_MOCK_RELEASE(0,36,400)
+        ZMK_MOCK_PRESS(0,10,10) ZMK_MOCK_PRESS(0,11,100)
+        ZMK_MOCK_RELEASE(0,11,10) ZMK_MOCK_RELEASE(0,10,400)
+        ZMK_MOCK_PRESS(0,31,10) ZMK_MOCK_RELEASE(0,31,400)
+    >;
+};
