@@ -1,0 +1,5 @@
+name: totem-nav-alt-tab
+build:
+  cmake: .
+  settings:
+    dts_root: .

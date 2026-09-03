@@ -1,0 +1,11 @@
+description: Hold left Alt after the first Tab until the specified layer is deactivated
+
+compatible: "zmk,behavior-layer-alt-tab"
+
+include: zero_param.yaml
+
+properties:
+  release-layer:
+    type: int
+    required: true
+    description: Momentary layer whose deactivation releases this behavior's Alt

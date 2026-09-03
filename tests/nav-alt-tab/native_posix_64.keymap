@@ -1,0 +1,60 @@
+#include "../../config/totem.keymap"
+#include <dt-bindings/zmk/kscan_mock.h>
+
+/* Use the real 38-key layout, with each physical position in one mock row. */
+&kscan {
+    rows = <1>;
+    columns = <38>;
+    events = <
+        /* Ordinary navigation and an unused MO4 must never press Alt. */
+        ZMK_MOCK_PRESS(0,33,10)
+        ZMK_MOCK_PRESS(0,3,10) ZMK_MOCK_RELEASE(0,3,10)
+        ZMK_MOCK_RELEASE(0,33,10)
+        ZMK_MOCK_PRESS(0,33,10) ZMK_MOCK_RELEASE(0,33,10)
+
+        /* One Alt down, three Tabs (with a pause), then Alt up with MO4. */
+        ZMK_MOCK_PRESS(0,33,10)
+        ZMK_MOCK_PRESS(0,20,10) ZMK_MOCK_RELEASE(0,20,1500)
+        ZMK_MOCK_PRESS(0,20,10) ZMK_MOCK_RELEASE(0,20,10)
+        ZMK_MOCK_PRESS(0,20,10) ZMK_MOCK_RELEASE(0,20,10)
+        ZMK_MOCK_RELEASE(0,33,10)
+
+        /* MO4 may be released before the special Tab key. */
+        ZMK_MOCK_PRESS(0,33,10) ZMK_MOCK_PRESS(0,20,10)
+        ZMK_MOCK_RELEASE(0,33,10) ZMK_MOCK_RELEASE(0,20,10)
+
+        /* Both existing Tabs continue switching after the special key. */
+        ZMK_MOCK_PRESS(0,33,10)
+        ZMK_MOCK_PRESS(0,20,10) ZMK_MOCK_RELEASE(0,20,10)
+        ZMK_MOCK_PRESS(0,21,10) ZMK_MOCK_RELEASE(0,21,10)
+        ZMK_MOCK_PRESS(0,37,10) ZMK_MOCK_RELEASE(0,37,10)
+        ZMK_MOCK_RELEASE(0,33,10)
+
+        /* Ending another layer must not release Alt; MO4 still does. */
+        ZMK_MOCK_PRESS(0,33,10)
+        ZMK_MOCK_PRESS(0,20,10) ZMK_MOCK_RELEASE(0,20,10)
+        ZMK_MOCK_PRESS(0,36,10) ZMK_MOCK_RELEASE(0,36,10)
+        ZMK_MOCK_PRESS(0,20,10) ZMK_MOCK_RELEASE(0,20,10)
+        ZMK_MOCK_RELEASE(0,33,10)
+
+        /* Separately held left Alt has its own press/release pair. */
+        ZMK_MOCK_PRESS(0,36,10) ZMK_MOCK_PRESS(0,11,10)
+        ZMK_MOCK_RELEASE(0,36,10) ZMK_MOCK_PRESS(0,33,10)
+        ZMK_MOCK_PRESS(0,20,10) ZMK_MOCK_RELEASE(0,20,10)
+        ZMK_MOCK_RELEASE(0,33,10) ZMK_MOCK_RELEASE(0,11,10)
+
+        /* An unused MO4 must not release a separately held left Alt. */
+        ZMK_MOCK_PRESS(0,36,10) ZMK_MOCK_PRESS(0,11,10)
+        ZMK_MOCK_RELEASE(0,36,10)
+        ZMK_MOCK_PRESS(0,33,10) ZMK_MOCK_RELEASE(0,33,10)
+        ZMK_MOCK_RELEASE(0,11,10)
+
+        /* Switch to the real Russian base layer and repeat. */
+        ZMK_MOCK_PRESS(0,20,100) ZMK_MOCK_RELEASE(0,20,100)
+        ZMK_MOCK_PRESS(0,33,10)
+        ZMK_MOCK_PRESS(0,3,10) ZMK_MOCK_RELEASE(0,3,10)
+        ZMK_MOCK_PRESS(0,20,10) ZMK_MOCK_RELEASE(0,20,10)
+        ZMK_MOCK_PRESS(0,20,10) ZMK_MOCK_RELEASE(0,20,10)
+        ZMK_MOCK_RELEASE(0,33,10)
+    >;
+};
