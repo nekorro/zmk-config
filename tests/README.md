@@ -6,9 +6,11 @@ events, rather than a second implementation of the behaviors.
 
 - `nav-alt-tab`: layer lifetime, repeated Tabs, early layer release, other layers,
   and ownership of a separately held Alt (eight scenarios).
+- `caps-lock-combo`: D+K produces Caps Lock on the English and Russian base
+  layers while the same physical positions remain ordinary keys in Game.
 - `home-row-mods`: intentional holds immediately after typing and after tapping
   the same key, all three home-row definitions, same-hand and opposite-hand rolls,
-  a fast Shift chord, and Game's Shift+A without a Caps Lock combo.
+  a fast Shift chord, and Game's Shift+A.
 - `ru-input`: opposite-hand Alt chords for ё/щ/ъ, uppercase Ё with Shift preserved
   while Alt is masked, a deliberate same-hand Alt hold, native Russian punctuation,
   and the remaining English fallback for apostrophe and tilde.

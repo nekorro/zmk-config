@@ -1,0 +1,26 @@
+#include "../../config/totem.keymap"
+#include <dt-bindings/zmk/kscan_mock.h>
+
+&kscan {
+    rows = <1>;
+    columns = <38>;
+    events = <
+        /* D+K on the English base layer must toggle Caps Lock once. */
+        ZMK_MOCK_PRESS(0,12,10) ZMK_MOCK_PRESS(0,17,10)
+        ZMK_MOCK_RELEASE(0,17,10) ZMK_MOCK_RELEASE(0,12,100)
+
+        /* The same physical chord is В+Л on the Russian base layer. */
+        ZMK_MOCK_PRESS(0,20,10) ZMK_MOCK_RELEASE(0,20,100)
+        ZMK_MOCK_PRESS(0,12,10) ZMK_MOCK_PRESS(0,17,10)
+        ZMK_MOCK_RELEASE(0,17,10) ZMK_MOCK_RELEASE(0,12,100)
+
+        /* In Game, these positions must remain ordinary W and K keys. */
+        ZMK_MOCK_PRESS(0,36,10) ZMK_MOCK_PRESS(0,33,10)
+        ZMK_MOCK_PRESS(0,31,10) ZMK_MOCK_RELEASE(0,31,10)
+        ZMK_MOCK_RELEASE(0,33,10) ZMK_MOCK_RELEASE(0,36,100)
+        ZMK_MOCK_PRESS(0,12,10) ZMK_MOCK_PRESS(0,17,10)
+        ZMK_MOCK_RELEASE(0,17,10) ZMK_MOCK_RELEASE(0,12,100)
+        ZMK_MOCK_PRESS(0,31,10) ZMK_MOCK_RELEASE(0,31,100)
+    >;
+};
+

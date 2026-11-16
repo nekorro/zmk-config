@@ -16,6 +16,17 @@
 #include <dt-bindings/zmk/keys.h>
 
 / {
+    combos {
+        compatible = "zmk,combos";
+
+        caps_lock_dk {
+            bindings = <&kp CAPSLOCK>;
+            key-positions = <12 17>;
+            layers = <LAYER_EN LAYER_RU>;
+            timeout-ms = <50>;
+        };
+    };
+
     behaviors {
         nav_alt_tab: nav_alt_tab {
             compatible = "zmk,behavior-layer-alt-tab";
