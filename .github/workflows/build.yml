@@ -29,3 +29,23 @@ jobs:
 
   build:
     uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@v0.3.0
+
+  publish:
+    name: Downloadable firmware
+    needs:
+      - test
+      - build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download merged firmware
+        uses: actions/download-artifact@v4
+        with:
+          name: firmware
+          path: firmware
+      - name: Publish firmware in this attempt
+        uses: actions/upload-artifact@v4
+        with:
+          name: firmware-ready
+          path: firmware
+          if-no-files-found: error
+          overwrite: true
